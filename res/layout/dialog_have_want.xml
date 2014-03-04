@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp" >
+
+    <ImageButton
+        android:id="@+id/dialog_have_plus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/plus"
+        android:contentDescription="@string/collection_dialog_inc_have" />
+
+    <EditText
+        android:id="@+id/dialog_have"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/dialog_have_plus"
+        android:ems="3"
+        android:gravity="center_horizontal"
+        android:inputType="number" />
+
+    <ImageButton
+        android:id="@+id/dialog_have_minus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/dialog_have"
+        android:background="@drawable/minus"
+        android:contentDescription="@string/collection_dialog_dec_have" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dialog_have"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:text="@string/collection_have"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="false" />
+
+    <View
+        android:id="@+id/linesplitter"
+        android:layout_width="fill_parent"
+        android:layout_height="6dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dialog_have" />
+
+    <ImageButton
+        android:id="@+id/dialog_want_plus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linesplitter"
+        android:background="@drawable/plus"
+        android:contentDescription="@string/collection_dialog_inc_want" />
+
+    <EditText
+        android:id="@+id/dialog_want"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linesplitter"
+        android:layout_toLeftOf="@+id/dialog_want_plus"
+        android:ems="3"
+        android:gravity="center_horizontal"
+        android:inputType="number" />
+
+    <ImageButton
+        android:id="@+id/dialog_want_minus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linesplitter"
+        android:layout_toLeftOf="@+id/dialog_want"
+        android:background="@drawable/minus"
+        android:contentDescription="@string/collection_dialog_dec_want" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dialog_want"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:text="@string/collection_want"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/linesplitter2"
+        android:layout_width="fill_parent"
+        android:layout_height="6dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dialog_want"
+        android:textIsSelectable="false" />
+
+    <ImageButton
+        android:id="@+id/dialog_trade_plus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linesplitter2"
+        android:background="@drawable/plus"
+        android:contentDescription="@string/collection_dialog_inc_trade" />
+
+    <EditText
+        android:id="@+id/dialog_trade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linesplitter2"
+        android:layout_toLeftOf="@+id/dialog_trade_plus"
+        android:ems="3"
+        android:gravity="center_horizontal"
+        android:inputType="number" />
+
+    <ImageButton
+        android:id="@+id/dialog_trade_minus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linesplitter2"
+        android:layout_toLeftOf="@+id/dialog_trade"
+        android:background="@drawable/minus"
+        android:contentDescription="@string/collection_dialog_dec_trade" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dialog_trade"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:text="@string/collection_trade"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="false" />
+
+</RelativeLayout>

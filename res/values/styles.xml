@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+    <item name="plus" type="drawable">@drawable/ic_action_plus_light</item>
+    <item name="minus" type="drawable">@drawable/ic_action_minus_light</item>
+
+</resources>

@@ -1,0 +1,414 @@
+{"set_title":"Giant-Size X-Men",
+  "G12": {
+    "set_id": "G12",
+    "name": "Frost Warrior",
+    "keywords": "Asgardian, Brute, Monster, Warrior"
+  },
+  "055": {
+    "set_id": "055",
+    "name": "Cable / Deadpool",
+    "keywords": "Six Pack, Soldier, Weapon X, X-Force"
+  },
+  "007": {
+    "set_id": "007",
+    "name": "Pretty Boy",
+    "keywords": "Reavers, Robot"
+  },
+  "032": {
+    "set_id": "032",
+    "name": "Ch'od",
+    "keywords": "Monster, Starjammers, Warrior"
+  },
+  "017": {
+    "set_id": "017",
+    "name": "Domino",
+    "keywords": "Six Pack, Soldier, X-Force"
+  },
+  "042": {
+    "set_id": "042",
+    "name": "Predator X",
+    "keywords": "Animal, Monster, Purifier"
+  },
+  "104": {
+    "set_id": "104",
+    "name": "Archangel",
+    "keywords": "X-Club, X-Force, X-Men"
+  },
+  "G07": {
+    "set_id": "G07",
+    "name": "Apocalypse",
+    "keywords": "Armor, Horsemen of Apocalypse, Ruler, Warrior"
+  },
+  "027": {
+    "set_id": "027",
+    "name": "Siryn",
+    "keywords": "Fallen Angels, X-Factor, X-Force"
+  },
+  "052": {
+    "set_id": "052",
+    "name": "Wolverine",
+    "keywords": "Horsemen of Apocalypse, Warrior"
+  },
+  "004": {
+    "set_id": "004",
+    "name": "Hellfire Club Guard",
+    "keywords": "Hellfire Club"
+  },
+  "014": {
+    "set_id": "014",
+    "name": "Roulette",
+    "keywords": "Hellions"
+  },
+  "201": {
+    "set_id": "201",
+    "name": "Pestilence",
+    "keywords": "Horsemen of Apocalypse, Morlocks"
+  },
+  "101": {
+    "set_id": "101",
+    "name": "Psylocke",
+    "keywords": "Exiles, X-Force, X-Men, Warrior"
+  },
+  "037": {
+    "set_id": "037",
+    "name": "Gatecrasher",
+    "keywords": "Cosmic, Technet, Warrior"
+  },
+  "G04": {
+    "set_id": "G04",
+    "team_ability": [
+      "X-Men", "Brotherhood", "Fantastic Four", "Ultimate X-Men"
+    ],
+    "name": "Onslaught",
+    "keywords": "Armor"
+  },
+  "047": {
+    "set_id": "047",
+    "name": "Phoenix",
+    "keywords": "Cosmic, Deity, X-Men"
+  },
+  "024": {
+    "set_id": "024",
+    "name": "Gideon",
+    "keywords": "Externals, Past"
+  },
+  "001": {
+    "set_id": "001",
+    "name": "Madrox",
+    "keywords": "Detective, Fallen Angels, S.H.I.E.L.D., X-Factor"
+  },
+  "011": {
+    "set_id": "011",
+    "team_ability": [
+      "Brotherhood"
+    ],
+    "name": "Emma Frost",
+    "keywords": "Dark X-Men, Generation X, Hellfire Club, Hellions, X-Men"
+  },
+  "057": {
+    "set_id": "057",
+    "name": "Cyclops / Phoenix",
+    "keywords": "Future, Past, X-Factor, X-Men"
+  },
+  "009": {
+    "set_id": "009",
+    "name": "Wolverine",
+    "keywords": "Avengers, S.H.I.E.L.D., The Hand, X-Men"
+  },
+  "034": {
+    "set_id": "034",
+    "name": "Pyro",
+    "keywords": "Brotherhood of Mutants, Freedom Force, Reporter"
+  },
+  "019": {
+    "set_id": "019",
+    "name": "William Stryker",
+    "keywords": "Purifier, Sapien League"
+  },
+  "044": {
+    "set_id": "044",
+    "name": "Bonebreaker",
+    "keywords": "Reavers, Robot"
+  },
+  "G01": {
+    "set_id": "G01",
+    "name": "Sentinel Mark II",
+    "keywords": "Robot"
+  },
+  "021": {
+    "set_id": "021",
+    "name": "Tarot",
+    "keywords": "Hellions"
+  },
+  "G09": {
+    "set_id": "G09",
+    "name": "Sentinel Mark V",
+    "keywords": "Robot"
+  },
+  "029": {
+    "set_id": "029",
+    "name": "Monica Rambeau",
+    "keywords": "Avengers, Marvel Diva, Nextwave"
+  },
+  "G11": {
+    "set_id": "G11",
+    "name": "Nemesis",
+    "keywords": "Armor, Exiles, Horsemen of Apocalypse"
+  },
+  "054": {
+    "set_id": "054",
+    "name": "The Captain",
+    "keywords": "Nextwave"
+  },
+  "006": {
+    "set_id": "006",
+    "name": "Skullbuster",
+    "keywords": "Reavers, Robot"
+  },
+  "031": {
+    "set_id": "031",
+    "name": "Angel",
+    "keywords": "X-Men"
+  },
+  "103": {
+    "set_id": "103",
+    "name": "Deadpool",
+    "keywords": "Deadpool Corps, Frightful Four, X-Force, Weapon X"
+  },
+  "016": {
+    "set_id": "016",
+    "name": "Aaron Stack",
+    "keywords": "Avengers, Heavy Metal, Nextwave, Robot, S.H.I.E.L.D., West Coast Avengers"
+  },
+  "041": {
+    "set_id": "041",
+    "name": "Stryfe",
+    "keywords": "Armor, Future, Mutant Liberation Front"
+  },
+  "203": {
+    "set_id": "203",
+    "name": "Famine",
+    "keywords": "Horsemen of Apocalypse, Teen"
+  },
+  "039": {
+    "set_id": "039",
+    "name": "Lockheed",
+    "keywords": "Animal, Excalibur, Pet Avengers, S.W.O.R.D., X-Men"
+  },
+  "051": {
+    "set_id": "051",
+    "name": "Hulk",
+    "keywords": "Brute, Horsemen of Apocalypse, Monster, Warrior"
+  },
+  "026": {
+    "set_id": "026",
+    "name": "Leech",
+    "keywords": "Generation X, Kid, Morlocks, Power Pack, X-Factor"
+  },
+  "049": {
+    "set_id": "049",
+    "name": "Archangel",
+    "keywords": "Horsemen of Apocalypse, X-Factor, X-Men"
+  },
+  "003": {
+    "set_id": "003",
+    "name": "Omega Prime Sentinel",
+    "keywords": "Robot"
+  },
+  "G06": {
+    "set_id": "G06",
+    "name": "Frost Giant",
+    "keywords": "Asgardian, Brute, Monster, Mystical, Ruler"
+  },
+  "100": {
+    "set_id": "100",
+    "name": "Jamie Madrox",
+    "keywords": "X-Factor"
+  },
+  "013": {
+    "set_id": "013",
+    "name": "Empath",
+    "keywords": "Hellions"
+  },
+  "036": {
+    "set_id": "036",
+    "name": "Professor X",
+    "keywords": "Illuminati, New Mutants, Scientist, X-Men"
+  },
+  "023": {
+    "set_id": "023",
+    "name": "Psylocke",
+    "keywords": "Exiles, Excalibur, Martial Artist, The Hand, X-Club, X-Force, X-Men"
+  },
+  "046": {
+    "set_id": "046",
+    "name": "Juggernaut",
+    "keywords": "Brotherhood of Mutants, Brute, Excalibur, Exiles, Mystical, X-Men"
+  },
+  "G03": {
+    "set_id": "G03",
+    "name": "Apocalypse",
+    "keywords": "Armor, Future, Horsemen of Apocalypse, Past, Ruler"
+  },
+  "056": {
+    "set_id": "056",
+    "name": "Colossus / Wolverine",
+    "keywords": "Armor, X-Men, Warrior"
+  },
+  "010": {
+    "set_id": "010",
+    "name": "Beast",
+    "keywords": "Avengers, Scientist, S.W.O.R.D., X-Club, X-Factor, X-Men"
+  },
+  "033": {
+    "set_id": "033",
+    "name": "Blob",
+    "keywords": "Brotherhood of Mutants, Factor Three, Freedom Force"
+  },
+  "008": {
+    "set_id": "008",
+    "name": "Cyclops",
+    "keywords": "X-Men, X-Factor"
+  },
+  "018": {
+    "set_id": "018",
+    "name": "Caliban",
+    "keywords": "Horsemen of Apocalypse, Morlocks, X-Factor, X-Force"
+  },
+  "043": {
+    "set_id": "043",
+    "name": "Trevor Fitzroy",
+    "keywords": "Future, Hellfire Club"
+  },
+  "020": {
+    "set_id": "020",
+    "name": "Harry Leland",
+    "keywords": "Hellfire Club"
+  },
+  "105": {
+    "set_id": "105",
+    "team_ability": [
+      "X-Men"
+    ],
+    "name": "Karima",
+    "keywords": "Acolytes, Detective, Marauders, Police, Robot, X-Men"
+  },
+  "G08": {
+    "set_id": "G08",
+    "name": "Sentinel Mark II",
+    "keywords": "Robot"
+  },
+  "028": {
+    "set_id": "028",
+    "name": "Elsa Bloodstone",
+    "keywords": "Mystical, Nextwave, Warrior"
+  },
+  "G10": {
+    "set_id": "G10",
+    "name": "Onslaught",
+    "keywords": "Armor"
+  },
+  "053": {
+    "set_id": "053",
+    "name": "Magneto",
+    "keywords": "Acolytes, Brotherhood of Mutants, Hellfire Club, Ruler"
+  },
+  "005": {
+    "set_id": "005",
+    "name": "Mindless One",
+    "keywords": "Black Hole Sons, Brute, Monster, Mystical"
+  },
+  "030": {
+    "set_id": "030",
+    "name": "Rogue",
+    "keywords": "Brotherhood of Mutants, X-Men"
+  },
+  "015": {
+    "set_id": "015",
+    "name": "Tabitha Smith",
+    "keywords": "Fallen Angels, Nextwave, New Mutants, X-Factor, X-Force"
+  },
+  "040": {
+    "set_id": "040",
+    "name": "Sabretooth",
+    "keywords": "Animal, Brotherhood of Mutants, Marauders, Weapon X"
+  },
+  "202": {
+    "set_id": "202",
+    "name": "War",
+    "keywords": "Horsemen of Apocalypse, Soldier"
+  },
+  "102": {
+    "set_id": "102",
+    "name": "Cable",
+    "keywords": "Armor, Future, New Mutants, Ruler, Six Pack, Soldier, X-Force, X-Men"
+  },
+  "038": {
+    "set_id": "038",
+    "team_ability": [
+      "X-Men"
+    ],
+    "name": "Iceman",
+    "keywords": "Champions, Defenders, X-Factor, X-Men"
+  },
+  "G05": {
+    "set_id": "G05",
+    "name": "Nemesis",
+    "keywords": "Armor, Exiles, Horsemen of Apocalypse, Ruler"
+  },
+  "048": {
+    "set_id": "048",
+    "name": "Storm",
+    "keywords": "Deity, Fantastic Four, Hellfire Club, Morlocks, Ruler, X-Men"
+  },
+  "025": {
+    "set_id": "025",
+    "name": "Elixir",
+    "keywords": "X-Force, X-Men"
+  },
+  "050": {
+    "set_id": "050",
+    "name": "Armor",
+    "keywords": "Teen, X-Men"
+  },
+  "002": {
+    "set_id": "002",
+    "name": "Purifier",
+    "keywords": "Purifier"
+  },
+  "012": {
+    "set_id": "012",
+    "team_ability": [
+      "Brotherhood"
+    ],
+    "name": "Cypher",
+    "keywords": "Excalibur, Hellions, New Mutants"
+  },
+  "058": {
+    "set_id": "058",
+    "name": "Gambit / Rogue",
+    "keywords": "X-Men"
+  },
+  "035": {
+    "set_id": "035",
+    "name": "Mystique",
+    "keywords": "Brotherhood of Mutants, Dark X-Men, Freedom Force, Marauders, Spy, X-Factor"
+  },
+  "045": {
+    "set_id": "045",
+    "name": "Vulcan",
+    "keywords": "Cosmic, Ruler, Shi'ar"
+  },
+  "G02": {
+    "set_id": "G02",
+    "name": "Sentinel Mark V",
+    "keywords": "Robot"
+  },
+  "022": {
+    "set_id": "022",
+    "name": "Cannonball",
+    "keywords": "Hellions, New Mutants"
+  },
+ "S101":{"name": "Crimson Gem of Cyttorak"},
+"S102":{"name": "Fin Fang Foom Toe"}
+}

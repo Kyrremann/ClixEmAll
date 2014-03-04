@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Holo.Light" />
+    <item name="plus" type="drawable">@drawable/ic_action_plus</item>
+    <item name="minus" type="drawable">@drawable/ic_action_minus</item>
+
+</resources>
