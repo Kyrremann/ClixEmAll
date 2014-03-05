@@ -68,14 +68,15 @@
     <color name="holo_orange_light">#ffffbb33</color>
 
     <string-array name="json_modern">
+        <item>b_wizkids.json</item>
+        <item>m_dp.json</item>
         <item>m_dofp.json</item>
         <item>dc_fflod.json</item>
-        <item>m_axm.json</item>
         <item>dc_slosh.json</item>
         <item>m_iim.json</item>
+        <item>m_axm.json</item>
         <item>dc_bao.json</item>
         <item>m_fi.json</item>
-        <item>b_wizkids.json</item>
         <item>m_tdw.json</item>
         <item>dc_smqs.json</item>
         <item>dc_bct.json</item>
@@ -193,14 +194,15 @@
         <item>m_ic.json</item>
     </string-array>
     <string-array name="titles_modern">
+        <item>WizKids</item>
+        <item>Deadpool</item>
         <item>X-Men - Days of Future Past</item>
         <item>Fast Forces: The Legion of Doom</item>
-        <item>Avengers vs X-Men</item>
         <item>Superman and the Legion of Super-Heroes</item>
         <item>The Invincible Iron Man</item>
+        <item>Avengers vs X-Men</item>
         <item>Batman: Arkham Origins</item>
         <item>Fear Itself</item>
-        <item>WizKids</item>
         <item>Thor: The Dark World</item>
         <item>Superman Quick-Start Kit</item>
         <item>Batman Classic TV</item>
