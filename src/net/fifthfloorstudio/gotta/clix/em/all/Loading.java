@@ -3,6 +3,8 @@ package net.fifthfloorstudio.gotta.clix.em.all;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.ClixEmAllHoneyComb;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,6 +25,8 @@ public class Loading extends Activity {
 
 		new Thread(new Runnable() {
 
+			// TODO Speed up the process, use more threads?
+			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
 				MyApplication application = (MyApplication) getApplicationContext();

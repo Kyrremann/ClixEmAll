@@ -1,20 +1,25 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.lists;
 
 import java.util.Iterator;
+
+import net.fifthfloorstudio.gotta.clix.em.all.AddClix;
+import net.fifthfloorstudio.gotta.clix.em.all.Database;
+import net.fifthfloorstudio.gotta.clix.em.all.JsonParser;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.CollectionAdapter;
 
 import org.json.JSONException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
-import android.database.Cursor;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,7 +51,6 @@ public class CollectionList extends ListActivity {
 	// private String[] sets, jsonFiles;
 	private Database database;
 	private int setCount;
-	private Cursor countCursor;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +65,6 @@ public class CollectionList extends ListActivity {
 		settings = getSharedPreferences(id, MODE_PRIVATE);
 		set = id.split(".json")[0];
 		database.open();
-		countCursor = database.getSetCounts(set);
 		database.close();
 
 		// setTitle(sets[position]);
@@ -83,7 +86,6 @@ public class CollectionList extends ListActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View v,
 					final int position, long id) {
-				System.out.println("hello");
 				AlertDialog.Builder builder = new Builder(CollectionList.this);
 				builder.setTitle(R.string.collection_dialog_have_want);
 				final View dialog = getLayoutInflater().inflate(
@@ -92,7 +94,6 @@ public class CollectionList extends ListActivity {
 				final String number = ((TextView) v.findViewById(R.id.id))
 						.getText().toString();
 
-				// TODO database action
 				database.open();
 
 				final EditText editHave = (EditText) dialog

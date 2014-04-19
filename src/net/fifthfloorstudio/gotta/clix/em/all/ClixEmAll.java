@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.GalleryAdapter;
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.SetAdapter;
+import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.lists.CollectionListHoneyComb;
+import net.fifthfloorstudio.gotta.clix.em.all.lists.CollectionList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;

@@ -1,9 +1,14 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+
+import net.fifthfloorstudio.gotta.clix.em.all.Database;
+import net.fifthfloorstudio.gotta.clix.em.all.JsonParser;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+import net.fifthfloorstudio.gotta.clix.em.all.lists.CollectionList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +30,7 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 	public static final String NAME = "name";
 	public static final String KEYWORDS = "keywords";
 	public static final String TEAM_ABILITY = "team_ability";
+	public static final String POINTS = "points";
 
 	private Context context;
 	private JSONObject jsonObject;
@@ -40,7 +46,7 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		collections = new ArrayList<String>();
 		filteredCollections = new ArrayList<String>();
 		try {
-			filterList(CollectionListHoneyComb.ALL);
+			filterList(CollectionList.ALL);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -72,13 +78,13 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		Iterator<String> keys;
 
 		switch (visibility) {
-		case CollectionListHoneyComb.ALL:
+		case CollectionList.ALL:
 			keys = jsonObject.keys();
 			while (keys.hasNext()) {
 				collections.add(keys.next());
 			}
 			break;
-		case CollectionListHoneyComb.HAVE:
+		case CollectionList.HAVE:
 			database.open();
 			cursor = database.getHave(set.split(".json")[0]);
 			if (cursor.getCount() != 0) {
@@ -90,7 +96,7 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			cursor.close();
 			database.close();
 			break;
-		case CollectionListHoneyComb.WANT:
+		case CollectionList.WANT:
 			database.open();
 			cursor = database.getWant(set.split(".json")[0]);
 			if (cursor.getCount() != 0) {
@@ -102,7 +108,7 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			cursor.close();
 			database.close();
 			break;
-		case CollectionListHoneyComb.HAVE_WANT:
+		case CollectionList.HAVE_WANT:
 			database.open();
 			cursor = database.getHaveWant(set.split(".json")[0]);
 			if (cursor.getCount() != 0) {
@@ -147,15 +153,19 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = View.inflate(context, R.layout.listrow, null);
+			convertView = View.inflate(context, R.layout.listrow2, null);
 			holder.id = (TextView) convertView.findViewById(R.id.id);
 			holder.title = (TextView) convertView.findViewById(R.id.title);
 			holder.keywords = (TextView) convertView
 					.findViewById(R.id.keywords);
-			holder.have_want = (LinearLayout) convertView
-					.findViewById(R.id.have_want);
+//			holder.have_want = (LinearLayout) convertView
+//					.findViewById(R.id.have_want);
+			holder.have = (TextView) convertView.findViewById(R.id.have);
+			holder.want = (TextView) convertView.findViewById(R.id.want);
+			holder.trade = (TextView) convertView.findViewById(R.id.trade);
 			// TODO: Team Ability
 			// holder.ta = (ImageView) convertView.findViewById(R.id.ta);
+			holder.points = (TextView) convertView.findViewById(R.id.points);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -168,72 +178,79 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			holder.title.setText(object.getString(NAME));
 			String keywords = "";
 			try {
-					keywords = object.getString(KEYWORDS);
-			} catch(JSONException e) {
-			}
-			if (keywords.length() == 0)
+				keywords = object.getString(KEYWORDS);
+				if (keywords.length() == 0) {
+					holder.keywords.setText("No keywords");
+				} else {
+					holder.keywords.setText(keywords);
+				}
+			} catch (JSONException e) {
 				holder.keywords.setText("No keywords");
-			else
-				holder.keywords.setText(keywords);
+			}
+			if (object.has(POINTS)) {
+				holder.points.setText(object.getString(POINTS));
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
 		database.open();
-		boolean coolored = false;
+		boolean colored = false;
 		String set = this.set.split(".json")[0];
 		int count = database.getFigureHaveCount(set, id);
 		if (count > 0) {
 			// holder.have_want.setVisibility(View.VISIBLE);
-			holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
-					View.VISIBLE);
-			((TextView) holder.have_want.findViewById(R.id.list_have_layout)
-					.findViewById(R.id.number_have)).setText(Integer
-					.toString(count));
+			//holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
+				//	View.VISIBLE);
+//			((TextView) holder.have_want.findViewById(R.id.list_have_layout)
+//					.findViewById(R.id.number_have)).setText(Integer
+//					.toString(count));
 			// ImageView child = new ImageView(context);
 			// child.setImageResource(R.drawable.ic_item_have);
 			// holder.have_want.addView(child);
 			// holder.have_want.setVisibility(View.VISIBLE);
+			holder.have.setText(Integer.toString(count));
 			convertView.setBackgroundColor(Color.parseColor("#7599CC00"));
-			coolored = true;
+			colored = true;
 		} else {
 			// holder.have_want.findViewById(R.id.list_have).setVisibility(
 			// View.GONE);
-			holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
-					View.GONE);
+//			holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
+//					View.GONE);
 		}
 
 		count = database.getFigureWantCount(set, id);
 		database.close();
 		if (count > 0) {
 			// holder.have_want.setVisibility(View.VISIBLE);
-			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
-					View.VISIBLE);
-			((TextView) holder.have_want.findViewById(R.id.list_want_layout)
-					.findViewById(R.id.number_want)).setText(Integer
-					.toString(count));
+//			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
+//					View.VISIBLE);
+//			((TextView) holder.have_want.findViewById(R.id.list_want_layout)
+//					.findViewById(R.id.number_want)).setText(Integer
+//					.toString(count));
 			// ImageView child = new ImageView(context);
 			// child.setImageResource(R.drawable.ic_star);
 			// holder.have_want.addView(child);
 			// holder.have_want.setVisibility(View.VISIBLE);
-			if (coolored) {
+			holder.want.setText(Integer.toString(count));
+			if (colored) {
 				convertView.setBackgroundColor(Color.parseColor("#7566C072"));
 			} else {
 				convertView.setBackgroundColor(Color.parseColor("#7533B5E5"));
-				coolored = true;
+				colored = true;
 			}
 		} else {
 			// holder.have_want.findViewById(R.id.list_want).setVisibility(
 			// View.GONE);
-			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
-					View.GONE);
+//			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
+//					View.GONE);
 		}
 
-		if (!coolored) {
-			holder.have_want.setVisibility(View.GONE);
+		if (!colored) {
+//			holder.have_want.setVisibility(View.GONE);
 			convertView.setBackgroundColor(-1);
 		} else {
-			holder.have_want.setVisibility(View.VISIBLE);
+//			holder.have_want.setVisibility(View.VISIBLE);
 		}
 
 		return convertView;
@@ -243,6 +260,8 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		TextView id;
 		TextView title;
 		TextView keywords;
+		TextView points;
+		TextView have, want, trade;
 		LinearLayout have_want;
 		// ImageView ta;
 	}
@@ -258,11 +277,14 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 				for (String s : collections) {
 					try {
 						JSONObject object = jsonObject.getJSONObject(s);
-						if (object.getString("name").toLowerCase(Locale.ENGLISH)
+						if (object.getString("name")
+								.toLowerCase(Locale.ENGLISH)
 								.contains(constraint)
-								|| object.getString("keywords").toLowerCase(Locale.ENGLISH)
+								|| object.getString("keywords")
+										.toLowerCase(Locale.ENGLISH)
 										.contains(constraint)
-								|| s.toLowerCase(Locale.ENGLISH).contains(constraint))
+								|| s.toLowerCase(Locale.ENGLISH).contains(
+										constraint))
 							filteredItems.add(s);
 					} catch (JSONException e) {
 						e.printStackTrace();

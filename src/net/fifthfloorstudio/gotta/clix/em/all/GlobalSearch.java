@@ -1,26 +1,20 @@
 package net.fifthfloorstudio.gotta.clix.em.all;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.GlobalSearchAdapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class GlobalSearch extends Activity {
 
@@ -67,7 +61,6 @@ public class GlobalSearch extends Activity {
 				final String number = ((TextView) v.findViewById(R.id.id))
 						.getText().toString();
 				final String set = (String) v.findViewById(R.id.id).getTag();
-				System.out.println(set);
 
 				// TODO database action
 				database.open();

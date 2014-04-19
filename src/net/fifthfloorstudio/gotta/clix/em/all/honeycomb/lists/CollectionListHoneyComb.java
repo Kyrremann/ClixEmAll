@@ -1,5 +1,8 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.honeycomb.lists;
 
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.CollectionAdapter;
+import net.fifthfloorstudio.gotta.clix.em.all.lists.CollectionList;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

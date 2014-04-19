@@ -1,7 +1,8 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 
 import java.util.List;
 
+import net.fifthfloorstudio.gotta.clix.em.all.R;
 import net.fifthfloorstudio.gotta.clix.em.all.R.id;
 
 import android.content.Context;

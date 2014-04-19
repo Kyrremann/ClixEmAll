@@ -1,9 +1,10 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.honeycomb;
 
+import net.fifthfloorstudio.gotta.clix.em.all.ClixEmAll;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Filterable;

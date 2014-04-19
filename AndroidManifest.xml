@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
         <activity android:name="ClixEmAll"></activity>
-        <activity android:name="ClixEmAllHoneyComb"></activity>
-        <activity android:name="CollectionList"></activity>
-        <activity android:name="CollectionListHoneyComb"></activity>
-        <activity android:name="MultiEditList"></activity>
+        <activity android:name=".honeycomb.ClixEmAllHoneyComb"></activity>
+        <activity android:name=".lists.CollectionList"></activity>
+        <activity android:name=".honeycomb.lists.CollectionListHoneyComb"></activity>
+        <activity android:name=".lists.MultiEditList"></activity>
         <activity android:name="GlobalSearch"></activity>
-        <activity android:name="GlobalSearchHoneyComb"></activity>
+        <activity android:name=".honeycomb.GlobalSearchHoneyComb"></activity>
         <activity android:name="AddClix"></activity>
     </application>
 

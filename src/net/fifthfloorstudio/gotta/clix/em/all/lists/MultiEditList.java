@@ -1,5 +1,7 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.lists;
 
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.MultiEditAdapter;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;

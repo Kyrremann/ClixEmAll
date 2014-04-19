@@ -1,13 +1,16 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import net.fifthfloorstudio.gotta.clix.em.all.Database;
+import net.fifthfloorstudio.gotta.clix.em.all.JsonParser;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;

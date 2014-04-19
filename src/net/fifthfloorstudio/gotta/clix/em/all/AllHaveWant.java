@@ -1,8 +1,9 @@
 package net.fifthfloorstudio.gotta.clix.em.all;
 
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.CollectionAdapter;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.app.AlertDialog.Builder;
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
@@ -11,10 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class AllHaveWant extends ListActivity {
 
@@ -44,7 +45,6 @@ public class AllHaveWant extends ListActivity {
 				final String number = ((TextView) v.findViewById(R.id.id))
 						.getText().toString();
 				final String set = (String) v.findViewById(R.id.id).getTag();
-				System.out.println(set);
 
 				// TODO database action
 				database.open();

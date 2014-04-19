@@ -1,25 +1,20 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import net.fifthfloorstudio.gotta.clix.em.all.Database;
+import net.fifthfloorstudio.gotta.clix.em.all.GlobalSearchNode;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 public class GlobalSearchAdapter extends
@@ -31,7 +26,6 @@ public class GlobalSearchAdapter extends
 	public static final int SET = 1;
 
 	private Context context;
-	private JSONObject jsonObject;
 	private Database database;
 	// private String set;
 	List<GlobalSearchNode> collections, filteredCollections, complete;

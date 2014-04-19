@@ -1,5 +1,6 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 
+import net.fifthfloorstudio.gotta.clix.em.all.R;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;

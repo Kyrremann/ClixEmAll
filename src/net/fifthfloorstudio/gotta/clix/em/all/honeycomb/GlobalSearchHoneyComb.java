@@ -1,11 +1,14 @@
-package net.fifthfloorstudio.gotta.clix.em.all;
+package net.fifthfloorstudio.gotta.clix.em.all.honeycomb;
 
+import net.fifthfloorstudio.gotta.clix.em.all.GlobalSearch;
+import net.fifthfloorstudio.gotta.clix.em.all.R;
+import net.fifthfloorstudio.gotta.clix.em.all.adapters.GlobalSearchAdapter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.SearchView.OnQueryTextListener;
+import android.widget.TextView;
 
 public class GlobalSearchHoneyComb extends GlobalSearch implements OnQueryTextListener {
 
