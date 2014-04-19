@@ -153,19 +153,16 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = View.inflate(context, R.layout.listrow2, null);
+			convertView = View.inflate(context, R.layout.listrow, null);
 			holder.id = (TextView) convertView.findViewById(R.id.id);
 			holder.title = (TextView) convertView.findViewById(R.id.title);
 			holder.keywords = (TextView) convertView
 					.findViewById(R.id.keywords);
-//			holder.have_want = (LinearLayout) convertView
-//					.findViewById(R.id.have_want);
-			holder.have = (TextView) convertView.findViewById(R.id.have);
-			holder.want = (TextView) convertView.findViewById(R.id.want);
-			holder.trade = (TextView) convertView.findViewById(R.id.trade);
+			holder.have_want = (LinearLayout) convertView
+					.findViewById(R.id.have_want);
 			// TODO: Team Ability
 			// holder.ta = (ImageView) convertView.findViewById(R.id.ta);
-			holder.points = (TextView) convertView.findViewById(R.id.points);
+			// holder.points = (TextView) convertView.findViewById(R.id.points);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -187,9 +184,9 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			} catch (JSONException e) {
 				holder.keywords.setText("No keywords");
 			}
-			if (object.has(POINTS)) {
-				holder.points.setText(object.getString(POINTS));
-			}
+			// if (object.has(POINTS)) {
+			// holder.points.setText(object.getString(POINTS));
+			// }
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -200,39 +197,37 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		int count = database.getFigureHaveCount(set, id);
 		if (count > 0) {
 			// holder.have_want.setVisibility(View.VISIBLE);
-			//holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
-				//	View.VISIBLE);
-//			((TextView) holder.have_want.findViewById(R.id.list_have_layout)
-//					.findViewById(R.id.number_have)).setText(Integer
-//					.toString(count));
+			 holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
+			 View.VISIBLE);
+			 ((TextView) holder.have_want.findViewById(R.id.list_have_layout)
+			 .findViewById(R.id.number_have)).setText(Integer
+			 .toString(count));
 			// ImageView child = new ImageView(context);
 			// child.setImageResource(R.drawable.ic_item_have);
 			// holder.have_want.addView(child);
 			// holder.have_want.setVisibility(View.VISIBLE);
-			holder.have.setText(Integer.toString(count));
 			convertView.setBackgroundColor(Color.parseColor("#7599CC00"));
 			colored = true;
 		} else {
 			// holder.have_want.findViewById(R.id.list_have).setVisibility(
 			// View.GONE);
-//			holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
-//					View.GONE);
+			 holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
+			 View.GONE);
 		}
 
 		count = database.getFigureWantCount(set, id);
 		database.close();
 		if (count > 0) {
 			// holder.have_want.setVisibility(View.VISIBLE);
-//			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
-//					View.VISIBLE);
-//			((TextView) holder.have_want.findViewById(R.id.list_want_layout)
-//					.findViewById(R.id.number_want)).setText(Integer
-//					.toString(count));
+			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
+					View.VISIBLE);
+			((TextView) holder.have_want.findViewById(R.id.list_want_layout)
+					.findViewById(R.id.number_want)).setText(Integer
+					.toString(count));
 			// ImageView child = new ImageView(context);
 			// child.setImageResource(R.drawable.ic_star);
 			// holder.have_want.addView(child);
 			// holder.have_want.setVisibility(View.VISIBLE);
-			holder.want.setText(Integer.toString(count));
 			if (colored) {
 				convertView.setBackgroundColor(Color.parseColor("#7566C072"));
 			} else {
@@ -240,17 +235,15 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 				colored = true;
 			}
 		} else {
-			// holder.have_want.findViewById(R.id.list_want).setVisibility(
-			// View.GONE);
-//			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
-//					View.GONE);
+			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
+					View.GONE);
 		}
 
 		if (!colored) {
-//			holder.have_want.setVisibility(View.GONE);
+			holder.have_want.setVisibility(View.GONE);
 			convertView.setBackgroundColor(-1);
 		} else {
-//			holder.have_want.setVisibility(View.VISIBLE);
+			holder.have_want.setVisibility(View.VISIBLE);
 		}
 
 		return convertView;
@@ -260,8 +253,7 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		TextView id;
 		TextView title;
 		TextView keywords;
-		TextView points;
-		TextView have, want, trade;
+		// TextView points;
 		LinearLayout have_want;
 		// ImageView ta;
 	}
