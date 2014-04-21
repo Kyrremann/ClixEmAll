@@ -160,9 +160,8 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 					.findViewById(R.id.keywords);
 			holder.have_want = (LinearLayout) convertView
 					.findViewById(R.id.have_want);
-			// TODO: Team Ability
-			// holder.ta = (ImageView) convertView.findViewById(R.id.ta);
-			// holder.points = (TextView) convertView.findViewById(R.id.points);
+			holder.ta = (TextView) convertView.findViewById(R.id.ta);
+			holder.points = (TextView) convertView.findViewById(R.id.points);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -184,9 +183,14 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			} catch (JSONException e) {
 				holder.keywords.setText("No keywords");
 			}
-			// if (object.has(POINTS)) {
-			// holder.points.setText(object.getString(POINTS));
-			// }
+			if (object.has(POINTS)) {
+			 holder.points.setText(object.getString(POINTS));
+			}
+			if (object.has(TEAM_ABILITY)) {
+				holder.ta.setText(object.getJSONArray(TEAM_ABILITY).join(", ").replaceAll("\"", ""));
+			} else {
+				holder.ta.setText("No team ability");
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -253,9 +257,9 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		TextView id;
 		TextView title;
 		TextView keywords;
-		// TextView points;
+		TextView points;
 		LinearLayout have_want;
-		// ImageView ta;
+		TextView ta;
 	}
 
 	private class CollectionFilter extends Filter {

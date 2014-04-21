@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.fifthfloorstudio.gotta.clix.em.all"
-    android:versionCode="36"
-    android:versionName="1.11.7" >
+    android:versionCode="37"
+    android:versionName="1.13.7" >
 
     <uses-sdk
         android:minSdkVersion="4"

@@ -29,7 +29,7 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ClixEmAll extends Activity {// implements OnQueryTextListener {
+public class ClixEmAll extends Activity {
 
 	protected SharedPreferences settings;
 	protected final String ASLIST = "asList";
@@ -87,8 +87,8 @@ public class ClixEmAll extends Activity {// implements OnQueryTextListener {
 					public void onClick(DialogInterface dialog, int which) {
 						Intent browserIntent = new Intent(
 								"android.intent.action.VIEW",
-								// Uri.parse("market://details?id=net.fifthfloorstudio.gotta.clix.em.all"));
-								Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all"));
+								Uri.parse("market://details?id=net.fifthfloorstudio.gotta.clix.em.all"));
+								// Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all"));
 						startActivity(browserIntent);
 					}
 				});
