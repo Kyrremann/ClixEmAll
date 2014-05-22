@@ -59,6 +59,7 @@ public class JsonParser {
 		try {
 			JSONObject set = getMeSomeJson(context, jsonFile);
 			set.remove(SET_TITLE);
+			set.remove(VERSION);
 			return set;
 		} catch (IOException e) {
 			e.printStackTrace();

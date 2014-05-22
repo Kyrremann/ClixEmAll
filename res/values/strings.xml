@@ -69,8 +69,12 @@
 
     <string-array name="json_modern">
         <item>b_wizkids.json</item>
+	    <item>dc_jlsg.json</item>
+	    <item>dc_wol.json</item>
         <item>m_dofp.json</item>
+	    <item>m_ffdp.json</item>
         <item>m_dp.json</item>
+	    <item>dc_bmqs.json</item>
         <item>m_catws.json</item>
         <item>dc_fflod.json</item>
         <item>dc_slosh.json</item>
@@ -196,8 +200,12 @@
     </string-array>
     <string-array name="titles_modern">
         <item>WizKids</item>
+	    <item>Justice League Strategy Game</item>
+	    <item>War of Light</item>
         <item>X-Men - Days of Future Past</item>
+	    <item>Fast Forces: Deadpool</item>
         <item>Deadpool</item>
+	    <item>Batman: Arkham Origins Quick-Start Kit</item>
         <item>Captain America - The Winter Soldier</item>
         <item>Fast Forces: The Legion of Doom</item>
         <item>Superman and the Legion of Super-Heroes</item>

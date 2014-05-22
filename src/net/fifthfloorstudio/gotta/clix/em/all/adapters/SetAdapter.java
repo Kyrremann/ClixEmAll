@@ -3,7 +3,6 @@ package net.fifthfloorstudio.gotta.clix.em.all.adapters;
 import java.util.List;
 
 import net.fifthfloorstudio.gotta.clix.em.all.R;
-import net.fifthfloorstudio.gotta.clix.em.all.R.id;
 
 import android.content.Context;
 import android.view.View;
@@ -32,7 +31,7 @@ public class SetAdapter<String> extends ArrayAdapter<String> {
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = View.inflate(context, resource, null);
-			holder.title = (TextView) convertView.findViewById(id.set_title);
+			holder.title = (TextView) convertView.findViewById(R.id.set_title);
 			holder.count = (TextView) convertView.findViewById(R.id.set_count);
 			convertView.setTag(holder);
 		} else {

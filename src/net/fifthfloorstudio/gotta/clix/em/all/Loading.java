@@ -44,17 +44,17 @@ public class Loading extends Activity {
 
 			@Override
 			public void run() {
-				String list = HTTPUtil.getVersionListFromServer(getApplicationContext());
-				try {
-					JSONObject jsonList = new JSONObject(list);
-					Iterator<String> keys = jsonList.keys();
-					while (keys.hasNext()) {
-						String key = keys.next();
-						checkForUpdates(key, jsonList.optInt(key, 1));
-					}
-				} catch (JSONException e) {
-					Log.e("JSON", "Can't convert string to json, " + list);
-				}
+//				String list = HTTPUtil.getVersionListFromServer(getApplicationContext());
+//				try {
+//					JSONObject jsonList = new JSONObject(list);
+//					Iterator<String> keys = jsonList.keys();
+//					while (keys.hasNext()) {
+//						String key = keys.next();
+//						checkForUpdates(key, jsonList.optInt(key, 1));
+//					}
+//				} catch (JSONException e) {
+//					Log.e("JSON", "Can't convert string to json, " + list);
+//				}
 
 				handler.sendEmptyMessage(DONE);
 			}
