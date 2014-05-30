@@ -2,9 +2,12 @@ package net.fifthfloorstudio.gotta.clix.em.all;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-import android.os.Message;
+import android.os.*;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.ClixEmAllHoneyComb;
 
 import org.json.JSONException;
@@ -13,18 +16,22 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
 
 public class Loading extends Activity {
 
 	private static final int DONE = 1;
+	private static final int UPDATING = 2;
+	private static final int INFO = 3;
+
+	private static final String SET = "set";
+
+	private TextView updateView;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
+		updateView = (TextView) findViewById(R.id.updateView);
 
 		final Handler handler = new Handler() {
 
@@ -32,9 +39,19 @@ public class Loading extends Activity {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 					case DONE:
-
-						lagSok(getApplicationContext());
+						// lagSok(getApplicationContext());
+						Log.d("HANDLER", "DONE");
 						startClixEmAll();
+						break;
+					case UPDATING:
+						Log.d("HANDLER", "UPDATING");
+						updateView.setText("Updating...");
+						break;
+					case INFO:
+						String set = msg.getData().getString(SET, "unknown");
+						Log.d("HANDLER", "INFO: " + set);
+						// String setName = getStringResourceByName(set);
+						updateView.setText("Updating " + set);
 						break;
 				}
 			}
@@ -42,27 +59,54 @@ public class Loading extends Activity {
 
 		new Thread(new Runnable() {
 
+			List<String> updatableSets;
+
 			@Override
 			public void run() {
-//				String list = HTTPUtil.getVersionListFromServer(getApplicationContext());
-//				try {
-//					JSONObject jsonList = new JSONObject(list);
-//					Iterator<String> keys = jsonList.keys();
-//					while (keys.hasNext()) {
-//						String key = keys.next();
-//						checkForUpdates(key, jsonList.optInt(key, 1));
-//					}
-//				} catch (JSONException e) {
-//					Log.e("JSON", "Can't convert string to json, " + list);
-//				}
-
-				handler.sendEmptyMessage(DONE);
+				long start = System.currentTimeMillis();
+				String list = HTTPUtil.getVersionFromServer(getApplicationContext());
+				updatableSets = new ArrayList<String>();
+				try {
+					JSONObject jsonList = new JSONObject(list);
+					Iterator<String> keys = jsonList.keys();
+					while (keys.hasNext()) {
+						String key = keys.next();
+						checkForUpdates(key, jsonList.optInt(key, 1));
+					}
+				} catch (JSONException e) {
+					Log.e("JSON", "Can't convert string to json, " + list);
+				}
+				Log.d("TIMER", "" + (System.currentTimeMillis() - start));
+				if (updatableSets.isEmpty()) {
+					handler.sendEmptyMessage(DONE);
+					return;
+				} else {
+					start = System.currentTimeMillis();
+					handler.sendEmptyMessage(UPDATING);
+					getUpdatesFromServer();
+					Log.d("TIMER", "" + (System.currentTimeMillis() - start));
+					handler.sendEmptyMessage(DONE);
+				}
 			}
 
 			private void checkForUpdates(String set, int latestVersion) {
 				JSONObject jsonObject = JsonParser.getJsonSet(getApplicationContext(), set);
-				if (jsonObject.optInt("version", 1) < latestVersion) {
-					System.out.println(HTTPUtil.getUpdateFromServer(set));
+				if (jsonObject.optInt("version", 1) < latestVersion + 1) {
+					// System.out.println(HTTPUtil.getUpdateFromServer(set));
+					updatableSets.add(set);
+				}
+			}
+
+			private void getUpdatesFromServer() {
+//				Message message = new Message();
+//				message.what = INFO;
+//				Bundle bundle = new Bundle();
+				for (String set : updatableSets) {
+					System.out.println(set);
+//					bundle.putString(SET, set);
+//					message.setData(bundle);
+//					handler.sendMessage(message);
+					// System.out.println(HTTPUtil.getUpdateFromServer(set));
 				}
 			}
 		}).start();
@@ -192,6 +236,12 @@ public class Loading extends Activity {
 	private boolean notPassableJSON(String key) {
 		return key.equals("version")
 				|| key.equals("set_title");
+	}
+
+	private String getStringResourceByName(String string) {
+		String packageName = getPackageName();
+		int resId = getResources().getIdentifier(string, "string", packageName);
+		return getString(resId);
 	}
 
 }

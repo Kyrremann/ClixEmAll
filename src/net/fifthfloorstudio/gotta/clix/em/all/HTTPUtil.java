@@ -22,7 +22,7 @@ public class HTTPUtil {
 	private static final String TAG = "HTTP";
 	private static final String SERVER_ADDRESS = "http://clixemall.heroku.com";
 
-	public static String getVersionListFromServer(Context applicationContext) {
+	public static String getVersionFromServer(Context applicationContext) {
 		return defaultHTTPConnection("/set/versions");
 	}
 

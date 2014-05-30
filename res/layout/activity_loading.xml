@@ -7,7 +7,7 @@
     tools:context=".Loading" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/logo_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -16,10 +16,10 @@
         android:src="@drawable/fifthfloorstudio_pyramide" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/logo_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
+        android:layout_below="@+id/logo_image"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/ffs"
@@ -27,5 +27,15 @@
         android:textColor="@android:color/black"
         android:textIsSelectable="false"
         android:textStyle="bold" />
+
+	<TextView
+			android:layout_marginTop="8dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/updateView"
+			android:textColor="@android:color/black"
+			android:layout_below="@+id/logo_text"
+			android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
