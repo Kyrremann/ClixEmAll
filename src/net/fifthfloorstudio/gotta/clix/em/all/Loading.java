@@ -32,7 +32,7 @@ public class Loading extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
 		updateView = (TextView) findViewById(R.id.updateView);
-
+/*
 		final Handler handler = new Handler() {
 
 			@Override
@@ -57,7 +57,7 @@ public class Loading extends Activity {
 			}
 		};
 
-		new Thread(new Runnable() {
+		Thread persistentSetThread = new Thread(new Runnable() {
 
 			List<String> updatableSets;
 
@@ -109,14 +109,16 @@ public class Loading extends Activity {
 					// System.out.println(HTTPUtil.getUpdateFromServer(set));
 				}
 			}
-		}).start();
-
-//		new Handler().postDelayed(new Runnable() {
-//			@Override
-//			public void run() {
-//				startClixEmAll();
-//			}
-//		}, 1200);
+		});
+		persistentSetThread.start();
+*/
+		lagSok(this);
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				startClixEmAll();
+			}
+		}, 1200);
 	}
 
 	private void startClixEmAll() {
@@ -142,6 +144,7 @@ public class Loading extends Activity {
 				R.array.json_modern)) {
 			JSONObject set = JsonParser.getJsonSet(context, s);
 			s = s.replace(".json", "");
+			Log.d("LOADING", "Reading from set " + set);
 			Iterator<String> keys = set.keys();
 			String key = null;
 			while (keys.hasNext()) {
