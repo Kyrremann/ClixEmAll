@@ -32,7 +32,7 @@ public class Loading extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
 		updateView = (TextView) findViewById(R.id.updateView);
-/*
+
 		final Handler handler = new Handler() {
 
 			@Override
@@ -51,7 +51,7 @@ public class Loading extends Activity {
 						String set = msg.getData().getString(SET, "unknown");
 						Log.d("HANDLER", "INFO: " + set);
 						// String setName = getStringResourceByName(set);
-						updateView.setText("Updating " + set);
+						// updateView.setText("Updating " + set);
 						break;
 				}
 			}
@@ -76,7 +76,7 @@ public class Loading extends Activity {
 				} catch (JSONException e) {
 					Log.e("JSON", "Can't convert string to json, " + list);
 				}
-				Log.d("TIMER", "" + (System.currentTimeMillis() - start));
+				Log.d("TIMER", "Retrieving version list took " + (System.currentTimeMillis() - start) + " ms");
 				if (updatableSets.isEmpty()) {
 					handler.sendEmptyMessage(DONE);
 					return;
@@ -84,41 +84,42 @@ public class Loading extends Activity {
 					start = System.currentTimeMillis();
 					handler.sendEmptyMessage(UPDATING);
 					getUpdatesFromServer();
-					Log.d("TIMER", "" + (System.currentTimeMillis() - start));
+					Log.d("TIMER", "Updating all the sets took " + (System.currentTimeMillis() - start) + " ms");
 					handler.sendEmptyMessage(DONE);
 				}
 			}
 
 			private void checkForUpdates(String set, int latestVersion) {
 				JSONObject jsonObject = JsonParser.getJsonSet(getApplicationContext(), set);
-				if (jsonObject.optInt("version", 1) < latestVersion + 1) {
+				if (jsonObject.optInt("version", 1) < latestVersion) {
 					// System.out.println(HTTPUtil.getUpdateFromServer(set));
 					updatableSets.add(set);
 				}
 			}
 
 			private void getUpdatesFromServer() {
-//				Message message = new Message();
-//				message.what = INFO;
-//				Bundle bundle = new Bundle();
+				Message message = new Message();
+				message.what = INFO;
+				Bundle bundle = new Bundle();
 				for (String set : updatableSets) {
-					System.out.println(set);
-//					bundle.putString(SET, set);
-//					message.setData(bundle);
+//					System.out.println(set);
+					Log.d("UPDATES", set);
+					bundle.putString(SET, set);
+					message.setData(bundle);
 //					handler.sendMessage(message);
 					// System.out.println(HTTPUtil.getUpdateFromServer(set));
 				}
 			}
 		});
 		persistentSetThread.start();
-*/
-		lagSok(this);
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				startClixEmAll();
-			}
-		}, 1200);
+
+		// lagSok(this);
+//		new Handler().postDelayed(new Runnable() {
+//			@Override
+//			public void run() {
+//				startClixEmAll();
+//			}
+//		}, 1200);
 	}
 
 	private void startClixEmAll() {
