@@ -62,6 +62,20 @@ public class JsonParser {
 		return null;
 	}
 
+	public static int getJsonSetVersion(Context context, String jsonFile) {
+		jsonFile = checkForFileJsonExtension(jsonFile);
+		try {
+			JSONObject set = getMeSomeJson(context, jsonFile);
+			return set.optInt(VERSION, 1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		return 1;
+	}
+
 	public static void saveJsonToAsset(Context context, String jsonString, String set) {
 		set = checkForFileJsonExtension(set);
 		try {

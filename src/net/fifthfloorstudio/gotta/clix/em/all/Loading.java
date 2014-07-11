@@ -96,8 +96,8 @@ public class Loading extends Activity {
 			}
 
 			private void checkForUpdates(String set, int latestVersion) {
-				JSONObject jsonObject = JsonParser.getJsonSet(getApplicationContext(), set);
-				if (jsonObject.optInt("version", 1) < latestVersion) {
+				int setVersion = JsonParser.getJsonSetVersion(getApplicationContext(), set);
+				if (setVersion < latestVersion) {
 					updatableSets.add(set);
 				}
 			}
