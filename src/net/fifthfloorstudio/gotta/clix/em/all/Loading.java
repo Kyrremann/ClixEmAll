@@ -42,7 +42,6 @@ public class Loading extends Activity {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 					case DONE:
-						// lagSok(getApplicationContext());
 						Log.d("HANDLER", "DONE");
 						startClixEmAll();
 						break;
@@ -119,14 +118,13 @@ public class Loading extends Activity {
 			}
 		});
 		persistentSetThread.start();
+		new Thread(new Runnable() {
 
-		// lagSok(this);
-//		new Handler().postDelayed(new Runnable() {
-//			@Override
-//			public void run() {
-//				startClixEmAll();
-//			}
-//		}, 1200);
+			@Override
+			public void run() {
+				lagSok(getApplicationContext());
+			}
+		}).start();
 	}
 
 	private void startClixEmAll() {
@@ -152,9 +150,9 @@ public class Loading extends Activity {
 				R.array.json_modern)) {
 			JSONObject set = JsonParser.getJsonSet(context, s);
 			s = s.replace(".json", "");
-			Log.d("LOADING", "Reading from set " + set);
+			Log.d(SEARCH, "Reading from set " + set);
 			Iterator<String> keys = set.keys();
-			String key = null;
+			String key;
 			while (keys.hasNext()) {
 				key = keys.next();
 				if (notPassableJSON(key)) {
@@ -162,18 +160,9 @@ public class Loading extends Activity {
 				}
 				try {
 					JSONObject figure = set.getJSONObject(key);
-					// TODO: Missing team ability
-					if (figure.has("keywords")) {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s, figure
-								.getString("keywords")));
-					} else {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s));
-					}
-
+					all.add(createSearchNode(key, s, figure));
 				} catch (JSONException e) {
-					e.printStackTrace();
+					Log.d(SEARCH, "Couldn't get " + key);
 				}
 			}
 		}
@@ -183,7 +172,7 @@ public class Loading extends Activity {
 			JSONObject set = JsonParser.getJsonSet(context, s);
 			s = s.replace(".json", "");
 			Iterator<String> keys = set.keys();
-			String key = null;
+			String key;
 			while (keys.hasNext()) {
 				key = keys.next();
 				if (notPassableJSON(key)) {
@@ -191,18 +180,9 @@ public class Loading extends Activity {
 				}
 				try {
 					JSONObject figure = set.getJSONObject(key);
-					// TODO: Missing team ability
-					if (figure.has("keywords")) {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s, figure
-								.getString("keywords")));
-					} else {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s));
-					}
-
+					all.add(createSearchNode(key, s, figure));
 				} catch (JSONException e) {
-					e.printStackTrace();
+					Log.d(SEARCH, "Couldn't get " + key);
 				}
 			}
 		}
@@ -212,7 +192,7 @@ public class Loading extends Activity {
 			JSONObject set = JsonParser.getJsonSet(context, s);
 			s = s.replace(".json", "");
 			Iterator<String> keys = set.keys();
-			String key = null;
+			String key;
 			while (keys.hasNext()) {
 				key = keys.next();
 				if (notPassableJSON(key)) {
@@ -220,28 +200,30 @@ public class Loading extends Activity {
 				}
 				try {
 					JSONObject figure = set.getJSONObject(key);
-					// TODO: Missing team ability
-					if (figure.has("keywords")) {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s, figure
-								.getString("keywords")));
-					} else {
-						all.add(new GlobalSearchNode(key, figure
-								.getString("name"), s));
-					}
-
+					all.add(createSearchNode(key, s, figure));
 				} catch (JSONException e) {
-					e.printStackTrace();
+					Log.d(SEARCH, "Couldn't get " + key);
 				}
 			}
 		}
-		System.out.println(System.currentTimeMillis() - start);
+		Log.d(SEARCH, "Search took " + (System.currentTimeMillis() - start) + " ms to generate");
 		application.setSearchNodes(all);
 		application.setGlobalSearchReady(true);
 		synchronized (syncToken) {
 			application.getSyncToken().notify();
 		}
-		// application.setGlobalParseDone(true);
+	}
+
+	private GlobalSearchNode createSearchNode(String id, String set, JSONObject figure) throws JSONException {
+		GlobalSearchNode searchNode = new GlobalSearchNode(id, set);
+		searchNode.setName(figure.getString("name"));
+		if (figure.has("keywords")) {
+			searchNode.setKeywords(figure.getString("keywords"));
+		}
+		// TODO: Missing team ability
+		// TODO: Missing points
+
+		return searchNode;
 	}
 
 	private boolean notPassableJSON(String key) {

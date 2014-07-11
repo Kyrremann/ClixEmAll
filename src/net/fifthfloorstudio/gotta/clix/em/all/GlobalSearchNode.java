@@ -3,16 +3,11 @@ package net.fifthfloorstudio.gotta.clix.em.all;
 public class GlobalSearchNode {
 	
 	private String name, set, id, keywords;
-	
-	public GlobalSearchNode(String id, String name, String set) {
-		this(id, name, set, "No keywords");
-	}
-	
-	public GlobalSearchNode(String id, String name, String set, String keywords) {
-		this.name = name;
-		this.set = set;
+
+	public GlobalSearchNode(String id, String set) {
 		this.id = id;
-		this.keywords = keywords;
+		this.set = set;
+		this.keywords = "No keywords";
 	}
 
 	public String getName() {
@@ -29,5 +24,13 @@ public class GlobalSearchNode {
 	
 	public String getId() {
 		return id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 }
