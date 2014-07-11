@@ -1,11 +1,7 @@
 package net.fifthfloorstudio.gotta.clix.em.all;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
-import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,9 +16,7 @@ public class JsonParser {
 
 	private static JSONObject getMeSomeJson(Context context, String file)
 			throws IOException, JSONException {
-		if (file.endsWith(".json") == false) {
-			file += ".json";
-		}
+		file = checkForFileJsonExtension(file);
 
 		byte[] buffer;
 		try {
@@ -53,9 +47,7 @@ public class JsonParser {
 	}
 
 	public static JSONObject getJsonSet(Context context, String jsonFile) {
-		if (!jsonFile.endsWith(".json")) {
-			jsonFile += ".json";
-		}
+		jsonFile = checkForFileJsonExtension(jsonFile);
 		try {
 			JSONObject set = getMeSomeJson(context, jsonFile);
 			set.remove(SET_TITLE);
@@ -70,8 +62,23 @@ public class JsonParser {
 		return null;
 	}
 
-	public static void saveJsonToAsset(Context context, JSONObject jsonObject) {
-		System.out.println("JSON " + jsonObject.toString());
-		// context.open
+	public static void saveJsonToAsset(Context context, String jsonString, String set) {
+		set = checkForFileJsonExtension(set);
+		try {
+			FileOutputStream outputStream = context.openFileOutput(set, Context.MODE_PRIVATE);
+			outputStream.write(jsonString.getBytes());
+			outputStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static String checkForFileJsonExtension(String set) {
+		if (!set.endsWith(".json")) {
+			set += ".json";
+		}
+		return set;
 	}
 }

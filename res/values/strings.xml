@@ -69,7 +69,9 @@
 
     <string-array name="json_modern">
         <item>b_wizkids.json</item>
+	    <item>m_gotg.json</item>
 	    <item>dc_jlsg.json</item>
+	    <item>m_gotgm.json</item>
 	    <item>dc_wol.json</item>
         <item>m_dofp.json</item>
 	    <item>m_ffdp.json</item>
@@ -200,7 +202,9 @@
     </string-array>
     <string-array name="titles_modern">
         <item>WizKids</item>
+	    <item>Guardians of the Galaxy</item>
 	    <item>Justice League Strategy Game</item>
+	    <item>Guardians of the Galaxy Movie</item>
 	    <item>War of Light</item>
         <item>X-Men - Days of Future Past</item>
 	    <item>Fast Forces: Deadpool</item>

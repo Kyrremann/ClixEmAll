@@ -24,6 +24,9 @@ public class Loading extends Activity {
 	private static final int INFO = 3;
 
 	private static final String SET = "set";
+	private static final String SEARCH = "search";
+
+	private String[] modernArray, otherArray, goldenArray;
 
 	private TextView updateView;
 
@@ -50,8 +53,13 @@ public class Loading extends Activity {
 					case INFO:
 						String set = msg.getData().getString(SET, "unknown");
 						Log.d("HANDLER", "INFO: " + set);
-						// String setName = getStringResourceByName(set);
-						// updateView.setText("Updating " + set);
+						String setName;
+						try {
+							setName = getStringResourceByName(set);
+						} catch (RuntimeException e) {
+							setName = "Secret set";
+						}
+						updateView.setText("Updating " + setName);
 						break;
 				}
 			}
@@ -92,7 +100,6 @@ public class Loading extends Activity {
 			private void checkForUpdates(String set, int latestVersion) {
 				JSONObject jsonObject = JsonParser.getJsonSet(getApplicationContext(), set);
 				if (jsonObject.optInt("version", 1) < latestVersion) {
-					// System.out.println(HTTPUtil.getUpdateFromServer(set));
 					updatableSets.add(set);
 				}
 			}
@@ -102,12 +109,12 @@ public class Loading extends Activity {
 				message.what = INFO;
 				Bundle bundle = new Bundle();
 				for (String set : updatableSets) {
-//					System.out.println(set);
 					Log.d("UPDATES", set);
 					bundle.putString(SET, set);
 					message.setData(bundle);
-//					handler.sendMessage(message);
-					// System.out.println(HTTPUtil.getUpdateFromServer(set));
+					handler.sendMessage(message);
+					String jsonString = HTTPUtil.getUpdateFromServer(set);
+					JsonParser.saveJsonToAsset(getApplicationContext(), jsonString, set);
 				}
 			}
 		});
@@ -123,7 +130,7 @@ public class Loading extends Activity {
 	}
 
 	private void startClixEmAll() {
-		Intent intent = null;
+		Intent intent;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			intent = new Intent(Loading.this, ClixEmAllHoneyComb.class);
 		} else {
@@ -243,9 +250,38 @@ public class Loading extends Activity {
 	}
 
 	private String getStringResourceByName(String string) {
-		String packageName = getPackageName();
-		int resId = getResources().getIdentifier(string, "string", packageName);
-		return getString(resId);
+		string += ".json";
+		if (modernArray == null) {
+			modernArray= getResources().getStringArray(R.array.json_modern);
+		}
+
+		for (int i = 0; i < modernArray.length; i++) {
+			if (modernArray[i].equals(string)) {
+				return getResources().getStringArray(R.array.titles_modern)[i];
+			}
+		};
+
+		if (otherArray == null) {
+			otherArray = getResources().getStringArray(R.array.json_other);
+		}
+
+		for (int i = 0; i < otherArray.length; i++) {
+			if (otherArray[i].equals(string)) {
+				return getResources().getStringArray(R.array.titles_other)[i];
+			}
+		};
+
+		if (goldenArray == null) {
+			goldenArray = getResources().getStringArray(R.array.json_golden);
+		}
+
+		for (int i = 0; i < goldenArray.length; i++) {
+			if (goldenArray[i].equals(string)) {
+				return getResources().getStringArray(R.array.titles_golden)[i];
+			}
+		};
+
+		throw new RuntimeException("No such set is found");
 	}
 
 }

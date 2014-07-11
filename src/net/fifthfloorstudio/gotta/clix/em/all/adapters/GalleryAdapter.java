@@ -61,10 +61,12 @@ public class GalleryAdapter extends BaseAdapter {
 
 	private Integer[] thumbs = {
 			// Modern
-			R.drawable.set_wizkids, R.drawable.set_wizkids,R.drawable.set_wizkids,
-			R.drawable.set_dofp, R.drawable.set_dp, R.drawable.set_dp, R.drawable.fifthfloorstudio_pyramide, R.drawable.set_catws,
-			R.drawable.set_fflod, R.drawable.set_slosh,R.drawable.set_avx,
-			R.drawable.set_iim,	R.drawable.set_bao, R.drawable.set_fi, 
+			R.drawable.set_wizkids, R.drawable.set_gotg, R.drawable.set_jlsg,
+			R.drawable.set_gotgm, R.drawable.set_wol,
+			R.drawable.set_dofp, R.drawable.set_ffdp, R.drawable.set_dp,
+			R.drawable.set_bmqs, R.drawable.set_catws,
+			R.drawable.set_fflod, R.drawable.set_slosh, R.drawable.set_avx,
+			R.drawable.set_iim, R.drawable.set_bao, R.drawable.set_fi,
 			R.drawable.set_tdw, R.drawable.set_smqs, R.drawable.set_bctv,
 			R.drawable.set_wxm, R.drawable.set_mos, R.drawable.set_tt,
 			R.drawable.set_fftt, R.drawable.set_nml, R.drawable.set_im3,
