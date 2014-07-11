@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp" >
+
+	<TextView
+			android:id="@+id/set"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="5dp"
+			android:paddingRight="15dp"
+			android:text="@string/test_set"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/darkest_gray"
+			android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/set"
+        android:layout_marginTop="5dp"
+        android:paddingRight="15dp"
+        android:text="@string/test_id"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/darkest_gray"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/id"
+        android:layout_toLeftOf="@+id/have_want"
+        android:layout_toRightOf="@+id/id"
+        android:text="@string/test_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="false"
+        android:maxLines="2"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/keywords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/id"
+        android:layout_toLeftOf="@+id/have_want"
+        android:text="@string/test_keywords"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="false" />
+
+    <LinearLayout
+        android:id="@+id/have_want"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignBottom="@+id/keywords"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/cd_have_want_image"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/list_have_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/number_have"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textIsSelectable="false" />
+
+            <ImageView
+                android:id="@+id/list_have"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/have"
+                android:src="@drawable/ic_item_have" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_want_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/number_want"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textIsSelectable="false" />
+
+            <ImageView
+                android:id="@+id/list_want"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pointsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/keywords"
+        android:text="Points: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/pointsText"
+        android:layout_below="@+id/keywords"
+        android:text="-"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/taText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/pointsText"
+        android:text="TA: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/ta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/taText"
+        android:layout_below="@+id/points"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

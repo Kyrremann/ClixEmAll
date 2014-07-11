@@ -7,7 +7,6 @@ import java.util.List;
 import android.os.*;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.ClixEmAllHoneyComb;
 
 import org.json.JSONException;
@@ -54,7 +53,7 @@ public class Loading extends Activity {
 						Log.d("HANDLER", "INFO: " + set);
 						String setName;
 						try {
-							setName = getStringResourceByName(set);
+							setName = getSetTitleByFilename(set);
 						} catch (RuntimeException e) {
 							setName = "Secret set";
 						}
@@ -150,7 +149,6 @@ public class Loading extends Activity {
 				R.array.json_modern)) {
 			JSONObject set = JsonParser.getJsonSet(context, s);
 			s = s.replace(".json", "");
-			Log.d(SEARCH, "Reading from set " + set);
 			Iterator<String> keys = set.keys();
 			String key;
 			while (keys.hasNext()) {
@@ -231,7 +229,7 @@ public class Loading extends Activity {
 				|| key.equals("set_title");
 	}
 
-	private String getStringResourceByName(String string) {
+	private String getSetTitleByFilename(String string) {
 		string += ".json";
 		if (modernArray == null) {
 			modernArray= getResources().getStringArray(R.array.json_modern);
