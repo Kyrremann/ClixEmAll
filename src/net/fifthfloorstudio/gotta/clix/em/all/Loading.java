@@ -70,7 +70,14 @@ public class Loading extends Activity {
 			@Override
 			public void run() {
 				long start = System.currentTimeMillis();
-				String list = HTTPUtil.getVersionFromServer(getApplicationContext());
+				String list;
+				try {
+					list = HTTPUtil.getVersionFromServer(getApplicationContext());
+				} catch (RuntimeException e) {
+					handler.sendEmptyMessage(DONE);
+					return;
+				}
+
 				updatableSets = new ArrayList<String>();
 				try {
 					JSONObject jsonList = new JSONObject(list);
@@ -116,7 +123,10 @@ public class Loading extends Activity {
 				}
 			}
 		});
+
+		// TODO check for wifi or net
 		persistentSetThread.start();
+
 		new Thread(new Runnable() {
 
 			@Override
