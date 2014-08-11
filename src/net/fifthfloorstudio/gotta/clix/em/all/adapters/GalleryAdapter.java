@@ -80,6 +80,7 @@ public class GalleryAdapter extends BaseAdapter {
 			R.drawable.set_mig, R.drawable.set_hulk, R.drawable.set_ffih,
 			R.drawable.set_dsmff, R.drawable.set_dsm, 
 			// Other
+			R.drawable.set_rotk,
 			R.drawable.set_ygo, R.drawable.set_ffs, R.drawable.set_dota2,
 			R.drawable.set_mkr, R.drawable.set_t2t, R.drawable.set_hbtjlm,
 			R.drawable.set_trek3, R.drawable.set_lr, R.drawable.set_ka2,

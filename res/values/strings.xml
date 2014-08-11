@@ -103,24 +103,9 @@
         <item>b_tabapp.json</item>
         <item>dc_d10.json</item>
         <item>m_m10.json</item>
-        <item>dc_jl52.json</item>
-        <item>dc_ffjl.json</item>
-        <item>m_ffcw.json</item>
-        <item>m_cw.json</item>
-        <item>dc_dkr.json</item>
-        <item>m_ffgsx.json</item>
-        <item>dc_ffwol.json</item>
-        <item>m_ams.json</item>
-        <item>m_avm.json</item>
-        <item>m_ffgga.json</item>
-        <item>m_gg.json</item>
-        <item>m_ig.json</item>
-        <item>m_ih.json</item>
-        <item>m_ffih.json</item>
-        <item>dc_ffsm.json</item>
-        <item>dc_sm.json</item>
     </string-array>
     <string-array name="json_other">
+	    <item>o_rotk.json</item>
         <item>o_ygo.json</item>
         <item>o_hbtdos.json</item>
         <item>o_dota2.json</item>
@@ -147,6 +132,22 @@
         <item>o_gow.json</item>
     </string-array>
     <string-array name="json_golden">
+	    <item>dc_jl52.json</item>
+	    <item>dc_ffjl.json</item>
+	    <item>m_ffcw.json</item>
+	    <item>m_cw.json</item>
+	    <item>dc_dkr.json</item>
+	    <item>m_ffgsx.json</item>
+	    <item>dc_ffwol.json</item>
+	    <item>m_ams.json</item>
+	    <item>m_avm.json</item>
+	    <item>m_ffgga.json</item>
+	    <item>m_gg.json</item>
+	    <item>m_ig.json</item>
+	    <item>m_ih.json</item>
+	    <item>m_ffih.json</item>
+	    <item>dc_ffsm.json</item>
+	    <item>dc_sm.json</item>
         <item>o_sf.json</item>
         <item>dc_ffwm.json</item>
         <item>m_ca.json</item>
@@ -236,24 +237,9 @@
         <item>TabApp</item>
         <item>DC HeroClix 10th Anniversary</item>
         <item>Marvel HeroClix 10th Anniversary</item>
-        <item>Justice League 52</item>
-        <item>Fast Forces: Justice League</item>
-        <item>Fast Forces: Chaos War</item>
-        <item>Chaos War</item>
-        <item>The Dark Knight Rises</item>
-        <item>Fast Forces: Giant-Size X-Men</item>
-        <item>Fast Forces: War of the Light</item>
-        <item>Avengers Movie Starter</item>
-        <item>Avengers Movie</item>
-        <item>Fast Forces: Galactic Guardians Annihilators</item>
-        <item>Galactic Guardians</item>
-        <item>Infinity Gauntlet</item>
-        <item>Incredible Hulk</item>
-        <item>Fast Forces: Incredible Hulk</item>
-        <item>Fast Forces: Superman</item>
-        <item>Superman</item>
     </string-array>
     <string-array name="titles_other">
+	    <item>Return of the King</item>
         <item>Yu-Gi-Oh! Heroclix: Series One</item>
         <item>The Hobbit: The Desolation of Smaug</item>
         <item>DOTA 2</item>
@@ -280,6 +266,22 @@
         <item>Gears of War</item>
     </string-array>
     <string-array name="titles_golden">
+	    <item>Justice League 52</item>
+	    <item>Fast Forces: Justice League</item>
+	    <item>Fast Forces: Chaos War</item>
+	    <item>Chaos War</item>
+	    <item>The Dark Knight Rises</item>
+	    <item>Fast Forces: Giant-Size X-Men</item>
+	    <item>Fast Forces: War of the Light</item>
+	    <item>Avengers Movie Starter</item>
+	    <item>Avengers Movie</item>
+	    <item>Fast Forces: Galactic Guardians Annihilators</item>
+	    <item>Galactic Guardians</item>
+	    <item>Infinity Gauntlet</item>
+	    <item>Incredible Hulk</item>
+	    <item>Fast Forces: Incredible Hulk</item>
+	    <item>Fast Forces: Superman</item>
+	    <item>Superman</item>
         <item>Street Fighter</item>
         <item>Fast Forces: Watchmen</item>
         <item>Captain America</item>
