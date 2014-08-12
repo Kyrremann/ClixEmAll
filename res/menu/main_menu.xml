@@ -42,13 +42,6 @@
         android:orderInCategory="5"
         android:showAsAction="never"
         android:title="@string/menu_other"/>
-    <!--
-    <item
-        android:id="@+id/menu_havewant"
-        android:orderInCategory="6"
-        android:showAsAction="never"
-        android:title="@string/menu_havewant"/>
-    -->
     <item
         android:id="@+id/menu_global_search"
         android:icon="@android:drawable/ic_menu_search"

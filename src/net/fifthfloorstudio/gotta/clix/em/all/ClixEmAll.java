@@ -198,7 +198,7 @@ public class ClixEmAll extends Activity {
 	private void onSetItemClick(String value) {
 		jsonFiles = getJsonFiles();
 		int position = findPosition(value);
-		Intent intent = null;
+		Intent intent;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			intent = new Intent(ClixEmAll.this, CollectionListHoneyComb.class);
 		} else {
@@ -246,37 +246,8 @@ public class ClixEmAll extends Activity {
 			justCreatedListView = false;
 		}
 
-		// switch (settings.getInt(LIST, -1)) {
-		// case MODERN:
-		// menu.findItem(R.id.menu_set_all).setChecked(false);
-		// menu.findItem(R.id.menu_modern).setChecked(true);
-		// menu.findItem(R.id.menu_golden).setChecked(false);
-		// menu.findItem(R.id.menu_other).setChecked(false);
-		// break;
-		// case GOLDEN:
-		// menu.findItem(R.id.menu_set_all).setChecked(false);
-		// menu.findItem(R.id.menu_modern).setChecked(false);
-		// menu.findItem(R.id.menu_golden).setChecked(true);
-		// menu.findItem(R.id.menu_other).setChecked(false);
-		// break;
-		// case OTHER:
-		// menu.findItem(R.id.menu_set_all).setChecked(false);
-		// menu.findItem(R.id.menu_modern).setChecked(false);
-		// menu.findItem(R.id.menu_golden).setChecked(false);
-		// menu.findItem(R.id.menu_other).setChecked(true);
-		// break;
-		// default:
-		// menu.findItem(R.id.menu_set_all).setChecked(true);
-		// menu.findItem(R.id.menu_modern).setChecked(false);
-		// menu.findItem(R.id.menu_golden).setChecked(false);
-		// menu.findItem(R.id.menu_other).setChecked(false);
-		// break;
-		// }
-
-		// if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 		menu.findItem(R.id.menu_search).setEnabled(false);
 		menu.findItem(R.id.menu_search).setVisible(false);
-		// }
 
 		return true;
 	}
@@ -354,8 +325,6 @@ public class ClixEmAll extends Activity {
 			toggleList(OTHER);
 		} else if (id == R.id.menu_global_search) {
 			startActivity(new Intent(this, GlobalSearch.class));
-			// } else if (item.getItemId() == R.id.menu_havewant){
-			// startActivity(new Intent(this, AllHaveWant.class));
 		} else if (id == R.id.menu_add_clix) {
 			startActivity(new Intent(this, AddClix.class));
 		}
@@ -396,16 +365,4 @@ public class ClixEmAll extends Activity {
 		adapter.notifyDataSetChanged();
 		editor.commit();
 	}
-
-	// @Override
-	// public boolean onQueryTextChange(String newText) {
-	// ((Filterable) adapter).getFilter().filter(newText);
-	// return true;
-	// }
-	//
-	// @Override
-	// public boolean onQueryTextSubmit(String query) {
-	// return false;
-	// }
-
 }

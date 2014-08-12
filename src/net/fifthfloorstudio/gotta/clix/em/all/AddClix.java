@@ -53,7 +53,6 @@ public class AddClix extends Activity {
 	}
 
 	public void send(View v) {
-		// if (v.getId() == R.id.add_button) {
 		Intent send = new Intent(Intent.ACTION_SENDTO);
 		String uriText = "mailto:"
 				+ Uri.encode("heroclix@fifthfloorstudio.net") + "?subject="
@@ -62,10 +61,7 @@ public class AddClix extends Activity {
 		Uri uri = Uri.parse(uriText);
 
 		send.setData(uri);
-		System.out.println("pushed");
 		startActivity(Intent.createChooser(send, "Send e-mail"));
-		System.out.println(send);
-		// }
 	}
 
 }

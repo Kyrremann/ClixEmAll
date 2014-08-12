@@ -54,21 +54,17 @@ public class ClixEmAllHoneyComb extends ClixEmAll implements
 
 		if (galleryView) {
 			menu.findItem(R.id.menu_search).setEnabled(false);
-			// menu.findItem(R.id.menu_search).setVisible(true);
 			menu.findItem(R.id.menu_set_all).setEnabled(false);
 			menu.findItem(R.id.menu_modern).setEnabled(false);
 			menu.findItem(R.id.menu_golden).setEnabled(false);
 			menu.findItem(R.id.menu_other).setEnabled(false);
-			// menu.findItem(R.id.menu_global_search).setEnabled(false);
 			return true;
 		} else if (justCreatedListView) {
 			menu.findItem(R.id.menu_search).setEnabled(true);
-			// menu.findItem(R.id.menu_search).setVisible(true);
 			menu.findItem(R.id.menu_set_all).setEnabled(true);
 			menu.findItem(R.id.menu_modern).setEnabled(true);
 			menu.findItem(R.id.menu_golden).setEnabled(true);
 			menu.findItem(R.id.menu_other).setEnabled(true);
-			// menu.findItem(R.id.menu_global_search).setEnabled(true);
 			justCreatedListView = false;
 		}
 		menu.findItem(R.id.menu_search).setEnabled(true);
