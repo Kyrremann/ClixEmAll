@@ -504,4 +504,9 @@ public class Database {
 			setFigureTrade(set, number, 0);
 		}
 	}
+
+	public Cursor getAllFigures() {
+		return db.query(COLLECTION_TABLE_NAME,
+				null, null, null, null, null, null);
+	}
 }

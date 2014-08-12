@@ -327,6 +327,8 @@ public class ClixEmAll extends Activity {
 			startActivity(new Intent(this, GlobalSearch.class));
 		} else if (id == R.id.menu_add_clix) {
 			startActivity(new Intent(this, AddClix.class));
+		} else if (id == R.id.menu_backup) {
+			startActivity(new Intent(this, BackupActivity.class));
 		}
 		editor.commit();
 

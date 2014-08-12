@@ -27,6 +27,7 @@
     <string name="menu_other">Show Other</string>
     <string name="menu_havewant">See all have and want</string>
     <string name="menu_add_clix">Report clix</string>
+	<string name="menu_backup">Backup</string>
     <string name="search_hint">Type your search</string>
     <string name="search_text">Please type in your search in the actionbar</string>
     <string name="search">search</string>
@@ -63,9 +64,16 @@
     <string name="add_points">Points:</string>
     <string name="add_clix">Here you can help update the database by filling out this form and sending it from your e-mail.</string>
     <string name="add_send">Send info</string>
-    
-    
-    <color name="holo_orange_light">#ffffbb33</color>
+	<string name="make_it_happen">Make it happen</string>
+	<string name="import_the_database">Import</string>
+	<string name="export_the_database">Export</string>
+	<string name="backup_information_export">To export your database to a .txt for storage you check which data you want to store, and then hit export.</string>
+	<string name="backup_information_import">\nWhen you want to load a backup you click import and chose your backup file. The backup file needs to be a .txt file, and the data will override any matching data.</string>
+	<string name="backup_dialog_title">Choose your file</string>
+	<string name="backup_toast_error">Can\'t read or write to local storage</string>
+
+
+	<color name="holo_orange_light">#ffffbb33</color>
 
     <string-array name="json_modern">
         <item>b_wizkids.json</item>

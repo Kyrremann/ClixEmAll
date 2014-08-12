@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp">
+
+	<ScrollView
+		android:id="@+id/scrollView1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/add_button"
+		android:layout_alignParentLeft="true">
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:text="@string/backup_information_export"
+				android:layout_alignParentBottom="true"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"/>
+
+			<CheckBox
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Have"
+				android:id="@+id/checkBox_have"
+				android:checked="true"/>
+
+			<CheckBox
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Want"
+				android:id="@+id/checkBox_want"
+				android:checked="true"/>
+
+			<CheckBox
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Trade"
+				android:id="@+id/checkBox_trade"
+				android:checked="true"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:text="@string/backup_information_import"
+				android:layout_alignParentBottom="true"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentStart="true"/>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/button_import"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/holo_orange_light"
+			android:onClick="onClick"
+			android:text="@string/import_the_database"
+			android:textStyle="bold"/>
+
+		<Button
+			android:id="@+id/button_export"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/holo_orange_light"
+			android:onClick="onClick"
+			android:text="@string/export_the_database"
+			android:textStyle="bold"/>
+	</LinearLayout>
+
+</RelativeLayout>
