@@ -77,6 +77,11 @@
 			android:text="@string/import_the_database"
 			android:textStyle="bold"/>
 
+		<View
+			android:layout_width="1dp"
+			android:layout_height="match_parent"
+			android:layout_weight=".1"/>
+
 		<Button
 			android:id="@+id/button_export"
 			android:layout_width="wrap_content"

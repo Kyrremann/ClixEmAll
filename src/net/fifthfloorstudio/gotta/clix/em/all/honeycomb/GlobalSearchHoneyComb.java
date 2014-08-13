@@ -19,6 +19,9 @@ public class GlobalSearchHoneyComb extends GlobalSearch implements OnQueryTextLi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		searh_hint = (TextView) findViewById(R.id.global_searh_text);
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	@Override

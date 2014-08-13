@@ -61,11 +61,6 @@ public class Database {
 				db.execSQL("ALTER TABLE " + COLLECTION_TABLE_NAME
 						+ " ADD COLUMN " + COLLECTION_TRADE + " INTEGER;");
 			}
-			// Kills the table and existing data
-			// db.execSQL("DROP TABLE IF EXISTS " + COLLECTION_TABLE_NAME);
-
-			// Recreates the database with a new version
-			// onCreate(db);
 		}
 	}
 
@@ -131,58 +126,34 @@ public class Database {
 		return result;
 	}
 
-	public long setFigureTrade(String id, String value, int count) {
+	public long setFigureTrade(String set, String id, int count) {
 		ContentValues values = new ContentValues(3);
-		values.put(COLLECTION_SET, id);
-		values.put(COLLECTION_NUMBER, value);
+		values.put(COLLECTION_SET, set);
+		values.put(COLLECTION_NUMBER, id);
 		values.put(COLLECTION_TRADE, count);
 
 		int result = db.update(COLLECTION_TABLE_NAME, values, COLLECTION_SET
-				+ "=? AND " + COLLECTION_NUMBER + "=?", new String[] { id,
-				value.toString() });
+				+ "=? AND " + COLLECTION_NUMBER + "=?", new String[] { set,
+				id.toString() });
 		if (result == 0)
 			return db.insert(COLLECTION_TABLE_NAME, null, values);
 		return result;
 	}
 
-	public void removeFigure(String id, String value) {
-		db.delete(COLLECTION_TABLE_NAME, COLLECTION_SET + "=? AND "
-				+ COLLECTION_NUMBER + "=?", new String[] { id, value });
-	}
+	public long setFigure(String set, String id, String have, String want, String trade) {
+		ContentValues values = new ContentValues(5);
+		values.put(COLLECTION_SET, set);
+		values.put(COLLECTION_NUMBER, id);
+		values.put(COLLECTION_HAVE, have);
+		values.put(COLLECTION_WANT, want);
+		values.put(COLLECTION_TRADE, trade);
 
-	public boolean isNone(String id, String value) {
-		Cursor cursor = db.query(COLLECTION_TABLE_NAME, new String[] {
-				COLLECTION_HAVE, COLLECTION_WANT }, COLLECTION_SET + "=? AND "
-				+ COLLECTION_NUMBER + "=?", new String[] { id, value }, null,
-				null, null);
-		cursor.moveToFirst();
-		if (cursor.getCount() == 0) {
-			cursor.close();
-			return true;
-		}
+		int result = db.update(COLLECTION_TABLE_NAME, values, COLLECTION_SET
+				+ "=? AND " + COLLECTION_NUMBER + "=?", new String[] { set, id });
+		if (result == 0)
+			return db.insert(COLLECTION_TABLE_NAME, null, values);
 
-		cursor.close();
-		return false;
-	}
-
-	public int getCheckedItem(String id, String value) {
-		Cursor cursor = db.query(COLLECTION_TABLE_NAME, new String[] {
-				COLLECTION_HAVE, COLLECTION_WANT }, COLLECTION_SET + "=? AND "
-				+ COLLECTION_NUMBER + "=?", new String[] { id, value }, null,
-				null, null);
-		cursor.moveToFirst();
-		if (cursor.getCount() == 0) {
-			cursor.close();
-			return -1;
-		}
-
-		if (cursor.getInt(0) > 0) {
-			cursor.close();
-			return 0;
-		}
-
-		cursor.close();
-		return 1;
+		return result;
 	}
 
 	public Cursor getHave(String set) {
@@ -505,8 +476,24 @@ public class Database {
 		}
 	}
 
-	public Cursor getAllFigures() {
+	public Cursor getAllHave() {
 		return db.query(COLLECTION_TABLE_NAME,
-				null, null, null, null, null, null);
+				new String[] { COLLECTION_SET, COLLECTION_NUMBER, COLLECTION_HAVE, COLLECTION_WANT, COLLECTION_TRADE },
+				COLLECTION_HAVE + " >?", new String[] { "0" },
+				null, null, null);
+	}
+
+	public Cursor getAllWant() {
+		return db.query(COLLECTION_TABLE_NAME,
+				new String[] { COLLECTION_SET, COLLECTION_NUMBER, COLLECTION_HAVE, COLLECTION_WANT, COLLECTION_TRADE },
+				COLLECTION_WANT + " >?", new String[] { "0" },
+				null, null, null);
+	}
+
+	public Cursor getAllTrade() {
+		return db.query(COLLECTION_TABLE_NAME,
+				new String[] { COLLECTION_SET, COLLECTION_NUMBER, COLLECTION_HAVE, COLLECTION_WANT, COLLECTION_TRADE },
+				COLLECTION_TRADE + " >?", new String[] { "0" },
+				null, null, null);
 	}
 }

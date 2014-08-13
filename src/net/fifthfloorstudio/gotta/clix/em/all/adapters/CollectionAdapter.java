@@ -200,21 +200,14 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		String set = this.set.split(".json")[0];
 		int count = database.getFigureHaveCount(set, id);
 		if (count > 0) {
-			// holder.have_want.setVisibility(View.VISIBLE);
 			 holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
 			 View.VISIBLE);
 			 ((TextView) holder.have_want.findViewById(R.id.list_have_layout)
 			 .findViewById(R.id.number_have)).setText(Integer
 			 .toString(count));
-			// ImageView child = new ImageView(context);
-			// child.setImageResource(R.drawable.ic_item_have);
-			// holder.have_want.addView(child);
-			// holder.have_want.setVisibility(View.VISIBLE);
 			convertView.setBackgroundColor(Color.parseColor("#7599CC00"));
 			colored = true;
 		} else {
-			// holder.have_want.findViewById(R.id.list_have).setVisibility(
-			// View.GONE);
 			 holder.have_want.findViewById(R.id.list_have_layout).setVisibility(
 			 View.GONE);
 		}
@@ -222,16 +215,11 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 		count = database.getFigureWantCount(set, id);
 		database.close();
 		if (count > 0) {
-			// holder.have_want.setVisibility(View.VISIBLE);
 			holder.have_want.findViewById(R.id.list_want_layout).setVisibility(
 					View.VISIBLE);
 			((TextView) holder.have_want.findViewById(R.id.list_want_layout)
 					.findViewById(R.id.number_want)).setText(Integer
 					.toString(count));
-			// ImageView child = new ImageView(context);
-			// child.setImageResource(R.drawable.ic_star);
-			// holder.have_want.addView(child);
-			// holder.have_want.setVisibility(View.VISIBLE);
 			if (colored) {
 				convertView.setBackgroundColor(Color.parseColor("#7566C072"));
 			} else {
@@ -306,9 +294,9 @@ public class CollectionAdapter extends ArrayAdapter<String> implements
 			filteredCollections = (ArrayList<String>) results.values;
 			notifyDataSetChanged();
 			clear();
-			for (String s : filteredCollections)
+			for (String s : filteredCollections) {
 				add(s);
-			// notifyDataSetInvalidated();
+			}
 			notifyDataSetChanged();
 		}
 

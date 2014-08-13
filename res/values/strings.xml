@@ -71,6 +71,11 @@
 	<string name="backup_information_import">\nWhen you want to load a backup you click import and chose your backup file. The backup file needs to be a .txt file, and the data will override any matching data.</string>
 	<string name="backup_dialog_title">Choose your file</string>
 	<string name="backup_toast_error">Can\'t read or write to local storage</string>
+	<string name="backup_header">Set;ID;Have;Want;Trade\n</string>
+	<string name="cant_read_file">Can\'t read from the file %1$s</string>
+	<string name="database_exported_to">Database exported to %1$s</string>
+	<string name="problem_reading_file">There where problems reading from the file %1$s</string>
+	<string name="reading_file_complete">Everything went okay when importing data</string>
 
 
 	<color name="holo_orange_light">#ffffbb33</color>

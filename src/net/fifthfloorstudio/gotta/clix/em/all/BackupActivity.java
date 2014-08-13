@@ -11,11 +11,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Currency;
 import java.util.Date;
 
 public class BackupActivity extends Activity {
@@ -36,7 +36,7 @@ public class BackupActivity extends Activity {
 				Environment.DIRECTORY_DOWNLOADS);
 
 		if (!isExternalStorageReadable()
-			|| !isExternalStorageWritable()) {
+				|| !isExternalStorageWritable()) {
 			Toast.makeText(this, R.string.backup_toast_error, Toast.LENGTH_SHORT).show();
 			finish();
 		}
@@ -49,7 +49,6 @@ public class BackupActivity extends Activity {
 				showFindFileDialog();
 				break;
 			case R.id.button_export:
-				// TODO Add filter for checkboxes
 				saveDatabaseToFile();
 				break;
 		}
@@ -63,12 +62,41 @@ public class BackupActivity extends Activity {
 			builder.setItems(mFileList, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					mChosenFile = mFileList[which];
-					// TODO you can do stuff with the file here too
+					importFile(mChosenFile);
 				}
 			});
 			findFileDialog = builder.create();
 		}
 		findFileDialog.show();
+	}
+
+	private void importFile(String filename) {
+		Database database = new Database(this);
+		database.open();
+		try {
+			FileReader fileReader = new FileReader(mPath + "/" + filename);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				if (line.equals(getString(R.string.backup_header))) {
+					continue;
+				}
+				writeLineToDatabase(line, database);
+			}
+			bufferedReader.close();
+			fileReader.close();
+		} catch (FileNotFoundException e) {
+			Toast.makeText(this, String.format(getString(R.string.cant_read_file), filename), Toast.LENGTH_SHORT).show();
+		} catch (IOException e) {
+			Toast.makeText(this, String.format(getString(R.string.problem_reading_file), filename), Toast.LENGTH_SHORT).show();
+		}
+		database.close();
+		Toast.makeText(this, R.string.reading_file_complete, Toast.LENGTH_SHORT).show();
+	}
+
+	private void writeLineToDatabase(String line, Database database) {
+		String[] array = line.split(";");
+		database.setFigure(array[0], array[1], array[2], array[3], array[4]);
 	}
 
 	private void loadFileList() {
@@ -95,21 +123,31 @@ public class BackupActivity extends Activity {
 
 	private void saveDatabaseToFile() {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ddMMyyyy");
-		File file = new File(mPath, "ClixEmAll-backup-" + simpleDateFormat.format(new Date()) + ".txt");
+		File file = new File(mPath, "ClixEmAll-" + simpleDateFormat.format(new Date()) + ".txt");
 
 		try {
 			mPath.mkdirs();
 			Database database = new Database(this);
 			database.open();
-			Cursor cursor = database.getAllFigures();
-			cursor.moveToFirst();
-			FileWriter fileWriter = new FileWriter(file);
-			while (!cursor.isAfterLast()) {
-				fileWriter.write(createRowString(cursor));
-				cursor.moveToNext();
+			FileWriter fileWriter = new FileWriter(file, false);
+			fileWriter.write(getString(R.string.backup_header));
+
+			CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox_have);
+			if (checkBox.isChecked()) {
+				writeCursorToFile(database.getAllHave(), fileWriter);
 			}
+
+			checkBox = (CheckBox) findViewById(R.id.checkBox_want);
+			if (checkBox.isChecked()) {
+				writeCursorToFile(database.getAllWant(), fileWriter);
+			}
+
+			checkBox = (CheckBox) findViewById(R.id.checkBox_trade);
+			if (checkBox.isChecked()) {
+				writeCursorToFile(database.getAllTrade(), fileWriter);
+			}
+
 			fileWriter.close();
-			cursor.close();
 			database.close();
 
 			MediaScannerConnection.scanFile(this,
@@ -124,8 +162,17 @@ public class BackupActivity extends Activity {
 			Log.w("ExternalStorage", "Error writing " + file, e);
 		}
 
-		Toast.makeText(this, "Database exported to " + file.getName(), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, String.format(getString(R.string.database_exported_to), file.getName()), Toast.LENGTH_SHORT).show();
 		finish();
+	}
+
+	private void writeCursorToFile(Cursor cursor, FileWriter fileWriter) throws IOException {
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			fileWriter.write(createRowString(cursor));
+			cursor.moveToNext();
+		}
+		cursor.close();
 	}
 
 	private String createRowString(Cursor cursor) {
@@ -135,7 +182,6 @@ public class BackupActivity extends Activity {
 		builder.append(cursor.getString(2)).append(";");
 		builder.append(cursor.getString(3)).append(";");
 		builder.append(cursor.getString(4)).append(";");
-		builder.append(cursor.getString(5)).append(";");
 		builder.append("\n");
 		return builder.toString();
 	}

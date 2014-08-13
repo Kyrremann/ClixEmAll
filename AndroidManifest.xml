@@ -1,40 +1,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.fifthfloorstudio.gotta.clix.em.all"
-    android:versionCode="41"
-    android:versionName="1.15.8" >
+          package="net.fifthfloorstudio.gotta.clix.em.all"
+          android:versionCode="41"
+          android:versionName="1.15.8">
 
-    <uses-sdk
-        android:minSdkVersion="4"
-        android:targetSdkVersion="19" />
+	<uses-sdk
+		android:minSdkVersion="4"
+		android:targetSdkVersion="19"/>
 
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-    <application
-        android:name="net.fifthfloorstudio.gotta.clix.em.all.MyApplication"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:allowBackup="true" >
-        <activity
-            android:name=".Loading"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+		android:name="net.fifthfloorstudio.gotta.clix.em.all.MyApplication"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme"
+		android:allowBackup="true">
+		<activity
+			android:name=".Loading"
+			android:label="@string/app_name"
+			android:theme="@android:style/Theme.Black.NoTitleBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ClixEmAll"></activity>
-        <activity android:name=".honeycomb.ClixEmAllHoneyComb"></activity>
-        <activity android:name=".lists.CollectionList"></activity>
-        <activity android:name=".honeycomb.lists.CollectionListHoneyComb"></activity>
-        <activity android:name=".lists.MultiEditList"></activity>
-        <activity android:name=".GlobalSearch"></activity>
-        <activity android:name=".honeycomb.GlobalSearchHoneyComb"></activity>
-        <activity android:name=".AddClix"></activity>
-	    <activity android:name=".BackupActivity"></activity>
-    </application>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".ClixEmAll"></activity>
+		<activity android:name=".honeycomb.ClixEmAllHoneyComb"></activity>
+		<activity android:name=".lists.CollectionList"></activity>
+		<activity android:name=".honeycomb.lists.CollectionListHoneyComb"></activity>
+		<activity android:name=".lists.MultiEditList"></activity>
+		<activity android:name=".GlobalSearch"></activity>
+		<activity
+			android:name=".honeycomb.GlobalSearchHoneyComb"
+			android:parentActivityName=".honeycomb.ClixEmAllHoneyComb"></activity>
+		<activity android:name=".AddClix"></activity>
+		<activity android:name=".BackupActivity"></activity>
+		<activity
+			android:name=".honeycomb.BackupActivityHoneyComb"
+			android:parentActivityName=".honeycomb.ClixEmAllHoneyComb"></activity>
+	</application>
 
 </manifest>
