@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="net.fifthfloorstudio.gotta.clix.em.all"
-          android:versionCode="41"
-          android:versionName="1.15.8">
+          android:versionCode="42"
+          android:versionName="1.17.8">
 
 	<uses-sdk
 		android:minSdkVersion="4"
@@ -36,6 +36,9 @@
 			android:name=".honeycomb.GlobalSearchHoneyComb"
 			android:parentActivityName=".honeycomb.ClixEmAllHoneyComb"></activity>
 		<activity android:name=".AddClix"></activity>
+		<activity
+				android:name=".honeycomb.AddClixHoneyComb"
+				android:parentActivityName=".honeycomb.AddClixHoneyComb"></activity>
 		<activity android:name=".BackupActivity"></activity>
 		<activity
 			android:name=".honeycomb.BackupActivityHoneyComb"

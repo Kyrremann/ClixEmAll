@@ -123,7 +123,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:background="@color/holo_orange_light"
+        android:background="@color/logo_green"
         android:onClick="send"
         android:text="@string/add_send"
         android:textStyle="bold" />
