@@ -1,8 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
+	<item
+		android:id="@+id/menu_search"
+		android:actionViewClass="android.widget.SearchView"
+		android:orderInCategory="0"
+		android:showAsAction="ifRoom"
+		android:title="@string/menu_search"/>
     <item
 	    android:id="@+id/menu_share"
-	    android:orderInCategory="0"
+	    android:orderInCategory="10"
 	    android:showAsAction="never"
 	    android:icon="@android:drawable/ic_menu_share"
 	    android:title="@string/menu_share"/>
@@ -10,49 +16,43 @@
         android:id="@+id/menu_as_list"
         android:checkable="true"
         android:checked="false"
-        android:orderInCategory="1"
+        android:orderInCategory="20"
         android:showAsAction="never"
         android:title="@string/menu_as_list"/>
     <item
         android:id="@+id/menu_set_all"
-        android:orderInCategory="2"
+        android:orderInCategory="30"
         android:showAsAction="never"
         android:title="@string/menu_all"/>
     <item
         android:id="@+id/menu_modern"
-        android:orderInCategory="3"
+        android:orderInCategory="31"
         android:showAsAction="never"
         android:title="@string/menu_modern"/>
     <item
         android:id="@+id/menu_golden"
-        android:orderInCategory="4"
+        android:orderInCategory="32"
         android:showAsAction="never"
         android:title="@string/menu_golden"/>
     <item
         android:id="@+id/menu_other"
-        android:orderInCategory="5"
+        android:orderInCategory="33"
         android:showAsAction="never"
         android:title="@string/menu_other"/>
     <item
         android:id="@+id/menu_global_search"
-        android:orderInCategory="101"
+        android:orderInCategory="40"
         android:showAsAction="never"
         android:icon="@android:drawable/ic_menu_search"
         android:title="@string/menu_global_search"/>
-    <item
-        android:id="@+id/menu_add_clix"
-        android:orderInCategory="102"
-        android:showAsAction="never"
-        android:title="@string/menu_add_clix"/>
-    <item
-        android:id="@+id/menu_search"
-        android:actionViewClass="android.widget.SearchView"
-        android:orderInCategory="102"
-        android:showAsAction="ifRoom"
-        android:title="@string/menu_search"/>
 	<item
 		android:id="@+id/menu_backup"
-		android:orderInCategory="103"
+		android:orderInCategory="50"
 		android:showAsAction="never"
 		android:title="@string/menu_backup"/>
+    <item
+        android:id="@+id/menu_add_clix"
+        android:orderInCategory="60"
+        android:showAsAction="never"
+        android:title="@string/menu_add_clix"/>
 </menu>
