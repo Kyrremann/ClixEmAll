@@ -34,7 +34,7 @@ public class HTTPUtil {
 	private static String defaultHTTPConnection(String addressPostfix) {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpGet request = new HttpGet();
-		URI website = null;
+		URI website;
 
 		try {
 			website = new URI(SERVER_ADDRESS + addressPostfix);

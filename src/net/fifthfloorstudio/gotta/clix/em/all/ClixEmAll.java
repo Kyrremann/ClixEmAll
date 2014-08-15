@@ -432,6 +432,7 @@ public class ClixEmAll extends Activity {
 		progressDialog.setCancelable(false);
 		progressDialog.setMessage(getString(R.string.synchronizing));
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		progressDialog.show();
 
 		// TODO check for wifi or net
 		SynchronizeSetHandler handler = new SynchronizeSetHandler(this, progressDialog);

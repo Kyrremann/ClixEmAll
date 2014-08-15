@@ -32,6 +32,10 @@ public class SynchronizeSetHandler extends Handler {
 			case DONE:
 				Log.d("HANDLER", "DONE");
 				progressDialog.setMessage(context.getString(R.string.handler_complete));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {}
+				progressDialog.dismiss();
 				break;
 			case UPDATING:
 				Log.d("HANDLER", "UPDATING");
