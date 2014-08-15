@@ -240,6 +240,9 @@ public class ClixEmAll extends Activity {
 		int id = item.getItemId();
 		SharedPreferences.Editor editor = settings.edit();
 		switch (id) {
+			case R.id.menu_sync:
+				synchronizeSets();
+				break;
 			case R.id.menu_share:
 				showShareDialog();
 				break;
@@ -406,8 +409,8 @@ public class ClixEmAll extends Activity {
 						public void onClick(DialogInterface dialog, int which) {
 							Intent browserIntent = new Intent(
 									"android.intent.action.VIEW",
-									Uri.parse("market://details?id=net.fifthfloorstudio.gotta.clix.em.all"));
-							// Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all"));
+									Uri.parse(getString(R.string.url_playstore)));
+							        //Uri.parse(getString(R.string.url_amazon)));
 							startActivity(browserIntent);
 						}
 					});
@@ -422,5 +425,17 @@ public class ClixEmAll extends Activity {
 			infoDialog = builder.create();
 		}
 		infoDialog.show();
+	}
+
+	private void synchronizeSets() {
+		ProgressDialog progressDialog = new ProgressDialog(this);
+		progressDialog.setCancelable(false);
+		progressDialog.setMessage(getString(R.string.synchronizing));
+		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+		// TODO check for wifi or net
+		SynchronizeSetHandler handler = new SynchronizeSetHandler(this, progressDialog);
+		SynchronizeSetThread thread = new SynchronizeSetThread(this, handler);
+		thread.run();
 	}
 }
