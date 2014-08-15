@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="darkest_gray">#404040</color>
+	<color name="darkest_gray">#404040</color>
+	<color name="logo_green">#669900</color>
+	<color name="holo_orange_light">#ffffbb33</color>
 
 </resources>

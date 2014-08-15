@@ -4,7 +4,8 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
-                android:paddingRight="10dp">
+                android:paddingRight="10dp"
+				android:paddingBottom="10dp">
 
 	<ScrollView
 		android:id="@+id/scrollView1"
@@ -72,7 +73,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:background="@color/holo_orange_light"
+			android:background="@color/logo_green"
 			android:onClick="onClick"
 			android:text="@string/import_the_database"
 			android:textStyle="bold"/>
@@ -87,7 +88,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:background="@color/holo_orange_light"
+			android:background="@color/logo_green"
 			android:onClick="onClick"
 			android:text="@string/export_the_database"
 			android:textStyle="bold"/>

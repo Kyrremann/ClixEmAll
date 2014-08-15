@@ -90,6 +90,4 @@
 	<string name="url_playstore">market://details?id=net.fifthfloorstudio.gotta.clix.em.all</string>
 	<string name="url_amazon">http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all</string>
 	<string name="synchronization_problem_connecting">Problem connecting to internet. Please check your connection and try again later.</string>
-
-	<color name="holo_orange_light">#ffffbb33</color>
 </resources>
