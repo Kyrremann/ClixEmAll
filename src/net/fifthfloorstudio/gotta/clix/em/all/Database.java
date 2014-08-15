@@ -249,7 +249,7 @@ public class Database {
 	}
 
 	public String getStringOfHave(String set) {
-		Cursor cursor = null;
+		Cursor cursor;
 		if (set == null) {
 			cursor = db.query(COLLECTION_TABLE_NAME, new String[] {
 					COLLECTION_NUMBER, COLLECTION_SET, COLLECTION_HAVE },
@@ -264,29 +264,29 @@ public class Database {
 		}
 		if (cursor.getCount() == 0) {
 			cursor.close();
-			return "I don't have any clix :(";
+			return context.getString(R.string.share_no_haves);
 		}
 
 		List<Pair> figures = new ArrayList<Pair>();
 		cursor.moveToFirst();
 		String lastSet = cursor.getString(1);
-		String result = "";
+		StringBuilder builder = new StringBuilder();
 		while (!cursor.isAfterLast()) {
 			if (cursor.getString(1).equals(lastSet) == false) {
 				Collections.sort(figures);
-				result += addToResult(lastSet, figures, CollectionList.HAVE);
+				builder.append(addToResult(lastSet, figures, CollectionList.HAVE));
 
 				figures.clear();
 				lastSet = cursor.getString(1);
 			}
 
-			figures.add(new Pair(cursor.getString(0), cursor.getInt(2)));
+			figures.add(new Pair(cursor.getString(0), lastSet, cursor.getInt(2)));
 			cursor.moveToNext();
 		}
-		result += addToResult(lastSet, figures, CollectionList.HAVE);
+		builder.append(addToResult(lastSet, figures, CollectionList.HAVE));
 
 		cursor.close();
-		return result;
+		return builder.toString();
 	}
 
 	/**
@@ -325,7 +325,7 @@ public class Database {
 				lastSet = cursor.getString(1);
 			}
 
-			figures.add(new Pair(cursor.getString(0), cursor.getInt(2)));
+			figures.add(new Pair(cursor.getString(0), lastSet, cursor.getInt(2)));
 			cursor.moveToNext();
 		}
 		result += addToResult(lastSet, figures, CollectionList.WANT);
@@ -355,7 +355,7 @@ public class Database {
 
 		if (cursor.getCount() == 0) {
 			cursor.close();
-			return "Sorry, nothing for trade!";
+			return context.getString(R.string.share_no_trades);
 		}
 
 		List<Pair> figures = new ArrayList<Pair>();
@@ -371,7 +371,7 @@ public class Database {
 				lastSet = cursor.getString(1);
 			}
 
-			figures.add(new Pair(cursor.getString(0), cursor.getInt(2)));
+			figures.add(new Pair(cursor.getString(0), lastSet, cursor.getInt(2)));
 			cursor.moveToNext();
 		}
 		result += addToResult(lastSet, figures, CollectionList.TRADE);
@@ -384,13 +384,13 @@ public class Database {
 		// TODO: Sort the list of sets correctly
 		String result = "";
 		if (type == CollectionList.HAVE) {
-			result = "I have the following from "
+			result = context.getString(R.string.share_i_have)
 					+ JsonParser.getSetTitle(context, lastSet + ".json") + "\n";
 		} else if (type == CollectionList.WANT) {
-			result = "I want the following from "
+			result = context.getString(R.string.share_i_want)
 					+ JsonParser.getSetTitle(context, lastSet + ".json") + "\n";
 		} else if (type == CollectionList.TRADE) {
-			result = "I have the following from "
+			result = context.getString(R.string.share_i_trade)
 					+ JsonParser.getSetTitle(context, lastSet + ".json") + "\n";
 		}
 		JSONObject jsonSet = JsonParser.getJsonSet(context, lastSet);
@@ -419,15 +419,21 @@ public class Database {
 	private class Pair implements Comparable<Pair> {
 
 		private String id;
+		private String set;
 		private int count;
 
-		public Pair(String id, int count) {
+		public Pair(String id, String set, int count) {
 			this.id = id;
+			this.set = set;
 			this.count = count;
 		}
 
 		public String getId() {
 			return id;
+		}
+
+		public String getSet() {
+			return set;
 		}
 
 		public int getCount() {
@@ -436,7 +442,12 @@ public class Database {
 
 		@Override
 		public int compareTo(Pair another) {
-			return id.compareTo(another.getId());
+			int result = set.compareTo(another.getSet());
+			if (result == 0) {
+				return id.compareTo(another.getId());
+			}
+
+			return result;
 		}
 	}
 

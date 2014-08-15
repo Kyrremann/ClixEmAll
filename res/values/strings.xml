@@ -74,8 +74,13 @@
 	<string name="database_exported_to">Database exported to %1$s</string>
 	<string name="problem_reading_file">There where problems reading from the file %1$s</string>
 	<string name="reading_file_complete">Everything went okay when importing data</string>
-	<string name="share_dialog_title">Share you figures</string>
+	<string name="share_dialog_title">Share your figures</string>
 	<string name="button_share">Share</string>
+	<string name="share_no_haves">I don\'t have any clix :(</string>
+	<string name="share_no_trades">Sorry, nothing for trade!</string>
+	<string name="share_i_have">I have the following from </string>
+	<string name="share_i_want">I want the following from </string>
+	<string name="share_i_trade">I have the following from </string>
 
 	<color name="holo_orange_light">#ffffbb33</color>
 </resources>

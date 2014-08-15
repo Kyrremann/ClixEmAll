@@ -125,7 +125,8 @@ public class Loading extends Activity {
 		});
 
 		// TODO check for wifi or net
-		persistentSetThread.start();
+		// TODO Move this out to front screen, and support manual updates
+		// persistentSetThread.start();
 
 		new Thread(new Runnable() {
 

@@ -239,35 +239,45 @@ public class ClixEmAll extends Activity {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		int id = item.getItemId();
 		SharedPreferences.Editor editor = settings.edit();
-		if (id == R.id.menu_share){
-			showSharedialog();
-		} else if (id == R.id.menu_as_list) {
-			if (item.isChecked()) {
-				item.setChecked(false);
-				editor.putBoolean(ASLIST, false);
-				createGalleryView();
-			} else {
-				item.setChecked(true);
-				editor.putBoolean(ASLIST, true);
-				createListView();
-			}
-		} else if (id == R.id.menu_set_all) {
-			toggleList(ALL);
+		switch (id) {
+			case R.id.menu_share:
+				showShareDialog();
+				break;
+			case R.id.menu_as_list:
+				if (item.isChecked()) {
+					item.setChecked(false);
+					editor.putBoolean(ASLIST, false);
+					createGalleryView();
+				} else {
+					item.setChecked(true);
+					editor.putBoolean(ASLIST, true);
+					createListView();
+				}
+				break;
+			case R.id.menu_set_all:
+				toggleList(ALL);
 
-		} else if (id == R.id.menu_modern) {
-			toggleList(MODERN);
+				break;
+			case R.id.menu_modern:
+				toggleList(MODERN);
 
-		} else if (id == R.id.menu_golden) {
-			toggleList(GOLDEN);
+				break;
+			case R.id.menu_golden:
+				toggleList(GOLDEN);
 
-		} else if (id == R.id.menu_other) {
-			toggleList(OTHER);
-		} else if (id == R.id.menu_global_search) {
-			startActivity(new Intent(this, GlobalSearch.class));
-		} else if (id == R.id.menu_add_clix) {
-			startActivity(new Intent(this, AddClix.class));
-		} else if (id == R.id.menu_backup) {
-			startActivity(new Intent(this, BackupActivity.class));
+				break;
+			case R.id.menu_other:
+				toggleList(OTHER);
+				break;
+			case R.id.menu_global_search:
+				startActivity(new Intent(this, GlobalSearch.class));
+				break;
+			case R.id.menu_add_clix:
+				startActivity(new Intent(this, AddClix.class));
+				break;
+			case R.id.menu_backup:
+				startActivity(new Intent(this, BackupActivity.class));
+				break;
 		}
 		editor.commit();
 
@@ -307,7 +317,7 @@ public class ClixEmAll extends Activity {
 		editor.commit();
 	}
 
-	private void showSharedialog() {
+	private void showShareDialog() {
 		if (shareDialog == null) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
