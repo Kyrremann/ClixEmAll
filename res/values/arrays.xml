@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="list_share_types">
+		<item>Your haves</item>
+		<item>Your wants</item>
+		<item>Your trades</item>
+	</string-array>
+	<string-array name="json_modern">
+		<item>b_wizkids.json</item>
+		<item>m_gotg.json</item>
+		<item>dc_jlsg.json</item>
+		<item>m_gotgm.json</item>
+		<item>dc_wol.json</item>
+		<item>m_dofp.json</item>
+		<item>m_ffdp.json</item>
+		<item>m_dp.json</item>
+		<item>dc_bmqs.json</item>
+		<item>m_catws.json</item>
+		<item>dc_fflod.json</item>
+		<item>dc_slosh.json</item>
+		<item>m_axm.json</item>
+		<item>m_iim.json</item>
+		<item>dc_bao.json</item>
+		<item>m_fi.json</item>
+		<item>m_tdw.json</item>
+		<item>dc_smqs.json</item>
+		<item>dc_bct.json</item>
+		<item>m_wxm.json</item>
+		<item>dc_mos.json</item>
+		<item>dc_tt.json</item>
+		<item>dc_fftt</item>
+		<item>dc_nml.json</item>
+		<item>m_im3.json</item>
+		<item>b_tae.json</item>
+		<item>dc_gcsg.json</item>
+		<item>m_asm.json</item>
+		<item>dc_ffsog.json</item>
+		<item>dc_sog.json</item>
+		<item>dc_bm.json</item>
+		<item>dc_ffbm.json</item>
+		<item>b_tabapp.json</item>
+		<item>dc_d10.json</item>
+		<item>m_m10.json</item>
+	</string-array>
+	<string-array name="json_other">
+		<item>o_rotk.json</item>
+		<item>o_ygo.json</item>
+		<item>o_hbtdos.json</item>
+		<item>o_dota2.json</item>
+		<item>o_mkr.json</item>
+		<item>o_t2t.json</item>
+		<item>o_hbtjlm.json</item>
+		<item>o_stts3.json</item>
+		<item>o_lr.json</item>
+		<item>o_ka2.json</item>
+		<item>o_bsi.json</item>
+		<item>o_pr.json</item>
+		<item>o_fotr.json</item>
+		<item>o_im.json</item>
+		<item>o_stmg.json</item>
+		<item>o_trek2.json</item>
+		<item>o_hobbit.json</item>
+		<item>o_acb.json</item>
+		<item>o_acr.json</item>
+		<item>o_sdcc.json</item>
+		<item>o_sttat.json</item>
+		<item>o_trek.json</item>
+		<item>o_lotr.json</item>
+		<item>o_halo.json</item>
+		<item>o_gow.json</item>
+	</string-array>
+	<string-array name="json_golden">
+		<item>dc_jl52.json</item>
+		<item>dc_ffjl.json</item>
+		<item>m_ffcw.json</item>
+		<item>m_cw.json</item>
+		<item>dc_dkr.json</item>
+		<item>m_ffgsx.json</item>
+		<item>dc_ffwol.json</item>
+		<item>m_ams.json</item>
+		<item>m_avm.json</item>
+		<item>m_ffgga.json</item>
+		<item>m_gg.json</item>
+		<item>m_ig.json</item>
+		<item>m_ih.json</item>
+		<item>m_ffih.json</item>
+		<item>dc_ffsm.json</item>
+		<item>dc_sm.json</item>
+		<item>o_sf.json</item>
+		<item>dc_ffwm.json</item>
+		<item>m_ca.json</item>
+		<item>m_ffhot.json</item>
+		<item>dc_ffgl.json</item>
+		<item>dc_gfgl.json</item>
+		<item>m_gsx.json</item>
+		<item>dc_75a.json</item>
+		<item>dc_bd.json</item>
+		<item>m_wos.json</item>
+		<item>m_jh.json</item>
+		<item>dc_wm.json</item>
+		<item>dc_bn.json</item>
+		<item>dc_bb.json</item>
+		<item>m_cl.json</item>
+		<item>m_hot.json</item>
+		<item>dc_aa.json</item>
+		<item>m_sec.json</item>
+		<item>dc_ba.json</item>
+		<item>dc_cr.json</item>
+		<item>m_mnm.json</item>
+		<item>dc_jl.json</item>
+		<item>m_av.json</item>
+		<item>dc_ls.json</item>
+		<item>o_bprd.json</item>
+		<item>dc_ori.json</item>
+		<item>m_2099.json</item>
+		<item>m_sv.json</item>
+		<item>m_dfp.json</item>
+		<item>dc_gl.json</item>
+		<item>o_iv.json</item>
+		<item>dc_gi.json</item>
+		<item>m_dr.json</item>
+		<item>m_si.json</item>
+		<item>dc_cd.json</item>
+		<item>m_aw.json</item>
+		<item>dc_icons.json</item>
+		<item>o_cov.json</item>
+		<item>m_ff.json</item>
+		<item>dc_lg.json</item>
+		<item>o_coh.json</item>
+		<item>m_mm.json</item>
+		<item>m_ult.json</item>
+		<item>dc_unl.json</item>
+		<item>m_ui.json</item>
+		<item>m_cm.json</item>
+		<item>o_indy.json</item>
+		<item>dc_cj.json</item>
+		<item>m_xp.json</item>
+		<item>m_ct.json</item>
+		<item>dc_ht.json</item>
+		<item>m_ic.json</item>
+	</string-array>
+	<string-array name="titles_modern">
+		<item>WizKids</item>
+		<item>Guardians of the Galaxy</item>
+		<item>Justice League Strategy Game</item>
+		<item>Guardians of the Galaxy Movie</item>
+		<item>War of Light</item>
+		<item>X-Men - Days of Future Past</item>
+		<item>Fast Forces: Deadpool</item>
+		<item>Deadpool</item>
+		<item>Batman: Arkham Origins Quick-Start Kit</item>
+		<item>Captain America - The Winter Soldier</item>
+		<item>Fast Forces: The Legion of Doom</item>
+		<item>Superman and the Legion of Super-Heroes</item>
+		<item>Avengers vs X-Men</item>
+		<item>The Invincible Iron Man</item>
+		<item>Batman: Arkham Origins</item>
+		<item>Fear Itself</item>
+		<item>Thor: The Dark World</item>
+		<item>Superman Quick-Start Kit</item>
+		<item>Batman Classic TV</item>
+		<item>Wolverine and X-Men</item>
+		<item>Man of Steel</item>
+		<item>Teen Titans</item>
+		<item>Fast Forces: Teen Titans</item>
+		<item>No Man\'s Land</item>
+		<item>Iron Man 3</item>
+		<item>TabApp Elite</item>
+		<item>Batman: Gotham City Strategy Game</item>
+		<item>Amazing Spider-Man</item>
+		<item>Fast Forces: Streets of Gotham</item>
+		<item>Batman: Streets of Gotham</item>
+		<item>Batman</item>
+		<item>Fast Forces: Batman</item>
+		<item>TabApp</item>
+		<item>DC HeroClix 10th Anniversary</item>
+		<item>Marvel HeroClix 10th Anniversary</item>
+	</string-array>
+	<string-array name="titles_other">
+		<item>Return of the King</item>
+		<item>Yu-Gi-Oh! Heroclix: Series One</item>
+		<item>The Hobbit: The Desolation of Smaug</item>
+		<item>DOTA 2</item>
+		<item>Mage Knight: Resurrection</item>
+		<item>The Two Towers</item>
+		<item>The Hobbit: Journey to the Lonely Mountain Strategy Game</item>
+		<item>Star Trek Tactics 3</item>
+		<item>Lone Ranger</item>
+		<item>Kick Ass 2</item>
+		<item>Bioshock Infinite</item>
+		<item>Pacific Rim</item>
+		<item>Fellowship of the Ring</item>
+		<item>Iron Maiden</item>
+		<item>Star Trek: Mini-Game</item>
+		<item>Star Trek: Tactics II</item>
+		<item>The Hobbit: An Unexpected Journey</item>
+		<item>Assasin\'s Creed Brotherhood</item>
+		<item>Assasin\'s Creed Revelations</item>
+		<item>SDCC Combo-Pack</item>
+		<item>Star Trek: Tactics Away Team</item>
+		<item>Star Trek: Tactics</item>
+		<item>Lord of the Rings</item>
+		<item>Halo</item>
+		<item>Gears of War</item>
+	</string-array>
+	<string-array name="titles_golden">
+		<item>Justice League 52</item>
+		<item>Fast Forces: Justice League</item>
+		<item>Fast Forces: Chaos War</item>
+		<item>Chaos War</item>
+		<item>The Dark Knight Rises</item>
+		<item>Fast Forces: Giant-Size X-Men</item>
+		<item>Fast Forces: War of the Light</item>
+		<item>Avengers Movie Starter</item>
+		<item>Avengers Movie</item>
+		<item>Fast Forces: Galactic Guardians Annihilators</item>
+		<item>Galactic Guardians</item>
+		<item>Infinity Gauntlet</item>
+		<item>Incredible Hulk</item>
+		<item>Fast Forces: Incredible Hulk</item>
+		<item>Fast Forces: Superman</item>
+		<item>Superman</item>
+		<item>Street Fighter</item>
+		<item>Fast Forces: Watchmen</item>
+		<item>Captain America</item>
+		<item>Fast Forces: Hammer of Thor</item>
+		<item>Fast Forces: Green Lantern</item>
+		<item>Green Lantern: Gravity Feed</item>
+		<item>Giant-Size X-Men</item>
+		<item>DC 75th Anniversary</item>
+		<item>Brightest Day</item>
+		<item>Web of Spider-Man</item>
+		<item>Jonah Hex</item>
+		<item>Watchmen</item>
+		<item>Blackest Night</item>
+		<item>Brave and the Bold</item>
+		<item>Classics</item>
+		<item>Hammer of Thor</item>
+		<item>Arkham Asylum</item>
+		<item>Secret Invasion</item>
+		<item>Batman: Alpha</item>
+		<item>Crisis</item>
+		<item>Mutations and Monsters</item>
+		<item>Justice League</item>
+		<item>Avengers</item>
+		<item>Legion of Super Heroes</item>
+		<item>Hellboy and the B.P.R.D.</item>
+		<item>Origin</item>
+		<item>2099</item>
+		<item>Supernova</item>
+		<item>Days of Future Past</item>
+		<item>Green Lantern Corps</item>
+		<item>Invincible</item>
+		<item>Giants</item>
+		<item>Danger Room</item>
+		<item>Sinister</item>
+		<item>Collateral Damage</item>
+		<item>Armor Wars</item>
+		<item>Icons</item>
+		<item>City of Villains</item>
+		<item>Fantastic Forces</item>
+		<item>Legacy</item>
+		<item>City of Heroes</item>
+		<item>Mutant Mayhem</item>
+		<item>Ultimates</item>
+		<item>Unleashed</item>
+		<item>Universe</item>
+		<item>Critical Mass</item>
+		<item>Indy</item>
+		<item>Cosmic Justice</item>
+		<item>Xplosion</item>
+		<item>Clobberin Time</item>
+		<item>Hypertime</item>
+		<item>Infinity Challenge</item>
+	</string-array>
+</resources>

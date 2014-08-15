@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import android.app.Dialog;
 import net.fifthfloorstudio.gotta.clix.em.all.adapters.GalleryAdapter;
 import net.fifthfloorstudio.gotta.clix.em.all.adapters.SetAdapter;
 import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.lists.CollectionListHoneyComb;
@@ -29,13 +30,21 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import static android.content.DialogInterface.OnClickListener;
+
 public class ClixEmAll extends Activity {
 
 	protected SharedPreferences settings;
 	protected final String ASLIST = "asList";
 	private final String LIST = "list";
 	private final String SHOW_ABOUT = "show_about";
-	private final int ALL = 0, MODERN = 1, GOLDEN = 2, OTHER = 3;
+	private final int ALL = 0;
+	private final int MODERN = 1;
+	private final int GOLDEN = 2;
+	private final int OTHER = 3;
+	private final int HAVE = 0;
+	private final int WANT = 1;
+	private final int TRADE = 2;
 	private final String PREFERENCES = "CLIX_PREFS";
 
 	private List<String> setList;
@@ -46,6 +55,8 @@ public class ClixEmAll extends Activity {
 	protected boolean galleryView;
 	protected boolean justCreatedListView;
 	private Database database;
+	private Dialog shareDialog;
+	private Dialog infoDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,34 +85,6 @@ public class ClixEmAll extends Activity {
 			editor.putInt(SHOW_ABOUT, vc);
 			editor.commit();
 		}
-	}
-
-	private void showInfoDialog() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("About");
-		builder.setMessage(R.string.about_dialog);
-		builder.setPositiveButton("Rate",
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						Intent browserIntent = new Intent(
-								"android.intent.action.VIEW",
-								Uri.parse("market://details?id=net.fifthfloorstudio.gotta.clix.em.all"));
-								// Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all"));
-						startActivity(browserIntent);
-					}
-				});
-
-		builder.setNeutralButton("Okay", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.cancel();
-			}
-		});
-
-		AlertDialog alert = builder.create();
-		alert.show();
 	}
 
 	private String[] getJsonFiles() {
@@ -256,52 +239,8 @@ public class ClixEmAll extends Activity {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		int id = item.getItemId();
 		SharedPreferences.Editor editor = settings.edit();
-		if (id == R.id.menu_share_all_have) {
-			ProgressDialog pd = new ProgressDialog(this);
-			pd.setCancelable(false);
-			pd.setMessage("Crunching your haves");
-			pd.show();
-			Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Check out my haves!");
-			database.open();
-			intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfHave(null));
-			database.close();
-			pd.cancel();
-			startActivity(Intent.createChooser(intent,
-					"Where to share your haves?"));
-		} else if (id == R.id.menu_share_all_want) {
-			ProgressDialog pd = new ProgressDialog(this);
-			pd.setCancelable(false);
-			pd.setMessage("Crunching your wants");
-			pd.show();
-			Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-			intent.putExtra(Intent.EXTRA_SUBJECT, "This is what I wants!");
-			database.open();
-			intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfWant(null));
-			database.close();
-			pd.cancel();
-			startActivity(Intent.createChooser(intent,
-					"Where to share your wants?"));
-		} else if (id == R.id.menu_share_all_trade) {
-			ProgressDialog pd = new ProgressDialog(this);
-			pd.setCancelable(false);
-			pd.setMessage("Crunching your trades");
-			pd.show();
-			Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-			intent.putExtra(Intent.EXTRA_SUBJECT,
-					"This is what I have for trade!");
-			database.open();
-			intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfTrade(null));
-			database.close();
-			pd.cancel();
-			startActivity(Intent.createChooser(intent,
-					"Where to share your trade?"));
+		if (id == R.id.menu_share){
+			showSharedialog();
 		} else if (id == R.id.menu_as_list) {
 			if (item.isChecked()) {
 				item.setChecked(false);
@@ -366,5 +305,112 @@ public class ClixEmAll extends Activity {
 		}
 		adapter.notifyDataSetChanged();
 		editor.commit();
+	}
+
+	private void showSharedialog() {
+		if (shareDialog == null) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+			builder.setTitle(getString(R.string.share_dialog_title));
+			builder.setItems(getResources().getStringArray(R.array.list_share_types), new OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					share(which);
+				}
+			});
+			builder.setNeutralButton(android.R.string.cancel, new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialogInterface, int which) {
+					dialogInterface.cancel();
+				}
+			});
+			shareDialog = builder.create();
+		}
+		shareDialog.show();
+	}
+
+	private void share(int which) {
+		ProgressDialog pd;
+		Intent intent;
+		switch (which) {
+			case HAVE:
+				pd = new ProgressDialog(this);
+				pd.setCancelable(false);
+				pd.setMessage("Crunching your haves");
+				pd.show();
+				intent = new Intent(android.content.Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				intent.putExtra(Intent.EXTRA_SUBJECT, "Check out my haves!");
+				database.open();
+				intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfHave(null));
+				database.close();
+				pd.cancel();
+				startActivity(Intent.createChooser(intent,
+						"Where to share your haves?"));
+				break;
+			case WANT:
+				pd = new ProgressDialog(this);
+				pd.setCancelable(false);
+				pd.setMessage("Crunching your wants");
+				pd.show();
+				intent = new Intent(android.content.Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				intent.putExtra(Intent.EXTRA_SUBJECT, "This is what I wants!");
+				database.open();
+				intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfWant(null));
+				database.close();
+				pd.cancel();
+				startActivity(Intent.createChooser(intent,
+						"Where to share your wants?"));
+				break;
+			case TRADE:
+				pd = new ProgressDialog(this);
+				pd.setCancelable(false);
+				pd.setMessage("Crunching your trades");
+				pd.show();
+				intent = new Intent(android.content.Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				intent.putExtra(Intent.EXTRA_SUBJECT,
+						"This is what I have for trade!");
+				database.open();
+				intent.putExtra(Intent.EXTRA_TEXT, database.getStringOfTrade(null));
+				database.close();
+				pd.cancel();
+				startActivity(Intent.createChooser(intent,
+						"Where to share your trade?"));
+				break;
+		}
+	}
+
+	private void showInfoDialog() {
+		if (infoDialog == null) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("About");
+			builder.setMessage(R.string.about_dialog);
+			builder.setPositiveButton("Rate",
+					new OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent browserIntent = new Intent(
+									"android.intent.action.VIEW",
+									Uri.parse("market://details?id=net.fifthfloorstudio.gotta.clix.em.all"));
+							// Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=net.fifthfloorstudio.gotta.clix.em.all"));
+							startActivity(browserIntent);
+						}
+					});
+
+			builder.setNeutralButton("Okay", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+				}
+			});
+
+			infoDialog = builder.create();
+		}
+		infoDialog.show();
 	}
 }
