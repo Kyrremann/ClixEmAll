@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.app.Dialog;
+import android.os.Looper;
 import net.fifthfloorstudio.gotta.clix.em.all.adapters.GalleryAdapter;
 import net.fifthfloorstudio.gotta.clix.em.all.adapters.SetAdapter;
 import net.fifthfloorstudio.gotta.clix.em.all.honeycomb.lists.CollectionListHoneyComb;
@@ -431,12 +432,12 @@ public class ClixEmAll extends Activity {
 		ProgressDialog progressDialog = new ProgressDialog(this);
 		progressDialog.setCancelable(false);
 		progressDialog.setMessage(getString(R.string.synchronizing));
-		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressDialog.show();
 
 		// TODO check for wifi or net
-		SynchronizeSetHandler handler = new SynchronizeSetHandler(this, progressDialog);
-		SynchronizeSetThread thread = new SynchronizeSetThread(this, handler);
-		thread.run();
+		SynchronizeSetHandler handler = new SynchronizeSetHandler(getApplicationContext(), progressDialog);
+		SynchronizeSetRunnable runnable = new SynchronizeSetRunnable(getApplicationContext(), handler);
+
+		new Thread(runnable).start();
 	}
 }

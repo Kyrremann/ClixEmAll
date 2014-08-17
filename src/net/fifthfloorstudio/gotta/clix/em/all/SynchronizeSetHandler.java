@@ -3,6 +3,7 @@ package net.fifthfloorstudio.gotta.clix.em.all;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -32,9 +33,6 @@ public class SynchronizeSetHandler extends Handler {
 			case DONE:
 				Log.d("HANDLER", "DONE");
 				progressDialog.setMessage(context.getString(R.string.handler_complete));
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {}
 				progressDialog.dismiss();
 				break;
 			case UPDATING:

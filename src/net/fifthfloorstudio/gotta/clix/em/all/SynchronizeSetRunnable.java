@@ -14,13 +14,13 @@ import java.util.List;
 
 import static net.fifthfloorstudio.gotta.clix.em.all.SynchronizeSetHandler.*;
 
-public class SynchronizeSetThread implements Runnable {
+public class SynchronizeSetRunnable implements Runnable {
 
 	private List<String> updatableSets;
 	private Context context;
 	private SynchronizeSetHandler handler;
 
-	public SynchronizeSetThread(Context context, SynchronizeSetHandler handler) {
+	public SynchronizeSetRunnable(Context context, SynchronizeSetHandler handler) {
 		this.context = context;
 		this.handler = handler;
 	}
@@ -32,6 +32,7 @@ public class SynchronizeSetThread implements Runnable {
 		try {
 			list = HTTPUtil.getVersionFromServer(context);
 		} catch (RuntimeException e) {
+			e.printStackTrace();
 			handler.sendEmptyMessage(DONE);
 			Toast.makeText(context, context.getString(R.string.synchronization_problem_connecting), Toast.LENGTH_SHORT).show();
 			Log.d("TIMER", "Can't retrieve version, it took " + (System.currentTimeMillis() - start) + " ms");
