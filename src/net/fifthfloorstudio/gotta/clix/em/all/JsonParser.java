@@ -12,7 +12,7 @@ public class JsonParser {
 	public final static String SET_TITLE = "set_title";
 	public final static String NAME = "name";
 	public final static String VERSION = "version";
-	public final static String FOLDER = "sets";
+	public final static String FOLDER = "";
 
 	private static JSONObject getMeSomeJson(Context context, String file)
 			throws IOException, JSONException {
