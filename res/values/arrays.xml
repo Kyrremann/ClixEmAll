@@ -6,7 +6,12 @@
 		<item>Your trades</item>
 	</string-array>
 	<string-array name="json_modern">
-		<item>b_wizkids.json</item>
+		<item>b_wk.json</item>
+		<item>b_wkd.json</item>
+		<item>b_wkm.json</item>
+		<item>o_ygo2.json</item>
+		<item>dc_tf.json</item>
+		<item>m_ffgotg.json</item>
 		<item>m_gotg.json</item>
 		<item>dc_jlsg.json</item>
 		<item>m_gotgm.json</item>
@@ -141,6 +146,10 @@
 	</string-array>
 	<string-array name="titles_modern">
 		<item>WizKids</item>
+		<item>WizKids DC</item>
+		<item>WizKids Marvel</item>
+		<item>The Flash</item>
+		<item>Fast Forces: The Inhumans</item>
 		<item>Guardians of the Galaxy</item>
 		<item>Justice League Strategy Game</item>
 		<item>Guardians of the Galaxy Movie</item>

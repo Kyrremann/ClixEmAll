@@ -61,7 +61,9 @@ public class GalleryAdapter extends BaseAdapter {
 
 	private Integer[] thumbs = {
 			// Modern
-			R.drawable.set_wizkids, R.drawable.set_gotg, R.drawable.set_jlsg,
+			R.drawable.set_wizkids, R.drawable.set_wkd, R.drawable.set_wkm,
+			R.drawable.set_ygo2, R.drawable.set_fl,
+			R.drawable.set_ffgotg, R.drawable.set_gotg, R.drawable.set_jlsg,
 			R.drawable.set_gotgm, R.drawable.set_wol,
 			R.drawable.set_dofp, R.drawable.set_ffdp, R.drawable.set_dp,
 			R.drawable.set_bmqs, R.drawable.set_catws,
@@ -73,12 +75,7 @@ public class GalleryAdapter extends BaseAdapter {
 			R.drawable.set_tae, R.drawable.set_gc, R.drawable.set_asm,
 			R.drawable.set_ffsog, R.drawable.set_sog, R.drawable.set_bm,
 			R.drawable.set_ffbm, R.drawable.set_tab, R.drawable.set_d10a,
-			R.drawable.set_m10a, R.drawable.set_jl52, R.drawable.set_ffjl,
-			R.drawable.set_ffcw, R.drawable.set_mcw, R.drawable.set_dkr,
-			R.drawable.set_ffgsx, R.drawable.set_dwol, R.drawable.set_ams,
-			R.drawable.set_avm, R.drawable.set_ffgga, R.drawable.set_mgg,
-			R.drawable.set_mig, R.drawable.set_hulk, R.drawable.set_ffih,
-			R.drawable.set_dsmff, R.drawable.set_dsm, 
+			R.drawable.set_m10a,
 			// Other
 			R.drawable.set_rotk,
 			R.drawable.set_ygo, R.drawable.set_ffs, R.drawable.set_dota2,
@@ -90,6 +87,12 @@ public class GalleryAdapter extends BaseAdapter {
 			R.drawable.set_sdcc, R.drawable.set_sttat, R.drawable.set_trek,
 			R.drawable.set_lotr, R.drawable.set_halo, R.drawable.set_gow,
 			// Golden
+			R.drawable.set_jl52, R.drawable.set_ffjl,
+			R.drawable.set_ffcw, R.drawable.set_mcw, R.drawable.set_dkr,
+			R.drawable.set_ffgsx, R.drawable.set_dwol, R.drawable.set_ams,
+			R.drawable.set_avm, R.drawable.set_ffgga, R.drawable.set_mgg,
+			R.drawable.set_mig, R.drawable.set_hulk, R.drawable.set_ffih,
+			R.drawable.set_dsmff, R.drawable.set_dsm,
 			R.drawable.set_sf, R.drawable.set_dwmff, R.drawable.set_mca,
 			R.drawable.set_mhtff, R.drawable.set_dglff, R.drawable.set_dglgf,
 			R.drawable.set_mgxm, R.drawable.set_dan, R.drawable.set_dbd,
