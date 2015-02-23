@@ -25,9 +25,6 @@ public class ClixEmAllHoneyComb extends ClixEmAll implements
 		} else if (item.getItemId() == R.id.menu_backup) {
 			startActivity(new Intent(this, BackupActivityHoneyComb.class));
 			return true;
-		} else if (item.getItemId() == R.id.menu_add_clix) {
-			startActivity(new Intent(this, AddClixHoneyComb.class));
-			return true;
 		}
 
 		return super.onMenuItemSelected(featureId, item);

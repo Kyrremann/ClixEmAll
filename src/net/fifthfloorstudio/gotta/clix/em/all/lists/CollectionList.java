@@ -324,8 +324,6 @@ public class CollectionList extends ListActivity {
 			intent.putExtra(COLLECTION, this.set);
 			startActivityForResult(intent,
 					Activity.RESULT_FIRST_USER);
-		} else if (id == R.id.menu_add_clix) {
-			startActivity(new Intent(this, AddClix.class));
 		}
 
 		return true;
