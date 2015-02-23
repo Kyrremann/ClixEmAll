@@ -241,9 +241,6 @@ public class ClixEmAll extends Activity {
 		int id = item.getItemId();
 		SharedPreferences.Editor editor = settings.edit();
 		switch (id) {
-			case R.id.menu_sync:
-				synchronizeSets();
-				break;
 			case R.id.menu_share:
 				showShareDialog();
 				break;
