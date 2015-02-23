@@ -9,7 +9,9 @@
 		<item>b_wizkids.json</item>
 		<item>b_wkd.json</item>
 		<item>b_wkm.json</item>
-		<item>dc_tf.json</item>
+		<item>dc_jltw.json</item>
+		<item>dc_ffjltw.json</item>
+		<item>dc_fl.json</item>
 		<item>m_ffgotg.json</item>
 		<item>m_gotg.json</item>
 		<item>dc_jlsg.json</item>
@@ -148,6 +150,8 @@
 		<item>WizKids</item>
 		<item>WizKids DC</item>
 		<item>WizKids Marvel</item>
+		<item>Justice League Trinity War</item>
+		<item>Fast Forces: The Crime Syndicate</item>
 		<item>The Flash</item>
 		<item>Fast Forces: The Inhumans</item>
 		<item>Guardians of the Galaxy</item>
