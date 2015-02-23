@@ -45,10 +45,5 @@
         android:orderInCategory="4"
         android:showAsAction="never"
         android:title="@string/menu_rest"/>
-    <item
-        android:id="@+id/menu_add_clix"
-        android:orderInCategory="102"
-        android:showAsAction="never"
-        android:title="@string/menu_add_clix"/>
 
 </menu>

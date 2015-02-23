@@ -273,9 +273,6 @@ public class ClixEmAll extends Activity {
 			case R.id.menu_global_search:
 				startActivity(new Intent(this, GlobalSearch.class));
 				break;
-			case R.id.menu_add_clix:
-				startActivity(new Intent(this, AddClix.class));
-				break;
 			case R.id.menu_backup:
 				startActivity(new Intent(this, BackupActivity.class));
 				break;
