@@ -25,10 +25,11 @@ public class JsonParser {
 			fileInputStream.read(buffer);
 			fileInputStream.close();
 		} catch (FileNotFoundException e) {
-			InputStream inputStream = context.getAssets().open(FOLDER + "/" + file);
+			InputStream inputStream = context.getAssets().open(FOLDER + file);
 			buffer = new byte[inputStream.available()];
 			inputStream.read(buffer);
 			inputStream.close();
+			System.out.println(buffer);
 		}
 
 		return new JSONObject(new String(buffer));

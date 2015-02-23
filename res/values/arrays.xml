@@ -6,10 +6,9 @@
 		<item>Your trades</item>
 	</string-array>
 	<string-array name="json_modern">
-		<item>b_wk.json</item>
+		<item>b_wizkids.json</item>
 		<item>b_wkd.json</item>
 		<item>b_wkm.json</item>
-		<item>o_ygo2.json</item>
 		<item>dc_tf.json</item>
 		<item>m_ffgotg.json</item>
 		<item>m_gotg.json</item>
@@ -48,6 +47,7 @@
 		<item>m_m10.json</item>
 	</string-array>
 	<string-array name="json_other">
+		<item>o_ygo2.json</item>
 		<item>o_rotk.json</item>
 		<item>o_ygo.json</item>
 		<item>o_hbtdos.json</item>
@@ -186,6 +186,7 @@
 		<item>Marvel HeroClix 10th Anniversary</item>
 	</string-array>
 	<string-array name="titles_other">
+		<item>Yu-Gi-Oh! HeroClix: Series Two</item>
 		<item>Return of the King</item>
 		<item>Yu-Gi-Oh! Heroclix: Series One</item>
 		<item>The Hobbit: The Desolation of Smaug</item>
