@@ -5,10 +5,14 @@
 		<item>Your wants</item>
 		<item>Your trades</item>
 	</string-array>
+
 	<string-array name="json_modern">
 		<item>b_wizkids.json</item>
 		<item>b_wkd.json</item>
 		<item>b_wkm.json</item>
+		<item>m_avas.json</item>
+		<item>m_aqs.json</item>
+		<item>m_aaou.json</item>
 		<item>dc_jltw.json</item>
 		<item>dc_ffjltw.json</item>
 		<item>dc_fl.json</item>
@@ -48,7 +52,9 @@
 		<item>dc_d10.json</item>
 		<item>m_m10.json</item>
 	</string-array>
+
 	<string-array name="json_other">
+		<item>o_botm.json</item>
 		<item>o_ygo2.json</item>
 		<item>o_rotk.json</item>
 		<item>o_ygo.json</item>
@@ -76,6 +82,7 @@
 		<item>o_halo.json</item>
 		<item>o_gow.json</item>
 	</string-array>
+
 	<string-array name="json_golden">
 		<item>dc_jl52.json</item>
 		<item>dc_ffjl.json</item>
@@ -146,10 +153,14 @@
 		<item>dc_ht.json</item>
 		<item>m_ic.json</item>
 	</string-array>
+
 	<string-array name="titles_modern">
 		<item>WizKids</item>
 		<item>WizKids DC</item>
 		<item>WizKids Marvel</item>
+		<item>Avengers Assemble</item>
+		<item>Avengers Quick-Start Kit</item>
+		<item>Avengers: Age of Ultron</item>
 		<item>Justice League Trinity War</item>
 		<item>Fast Forces: The Crime Syndicate</item>
 		<item>The Flash</item>
@@ -189,7 +200,9 @@
 		<item>DC HeroClix 10th Anniversary</item>
 		<item>Marvel HeroClix 10th Anniversary</item>
 	</string-array>
+
 	<string-array name="titles_other">
+		<item>Yu-Gi-Oh! HeroClix: Battle of the Millennium</item>
 		<item>Yu-Gi-Oh! HeroClix: Series Two</item>
 		<item>Return of the King</item>
 		<item>Yu-Gi-Oh! Heroclix: Series One</item>
@@ -217,6 +230,7 @@
 		<item>Halo</item>
 		<item>Gears of War</item>
 	</string-array>
+
 	<string-array name="titles_golden">
 		<item>Justice League 52</item>
 		<item>Fast Forces: Justice League</item>

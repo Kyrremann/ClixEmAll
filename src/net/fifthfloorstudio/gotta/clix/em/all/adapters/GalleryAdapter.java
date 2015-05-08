@@ -61,6 +61,7 @@ public class GalleryAdapter extends BaseAdapter {
 
 	private Integer[] thumbs = {
 			// Modern
+			R.drawable.set_avas, R.drawable.set_aqs, R.drawable.set_aaou,
 			R.drawable.set_wizkids, R.drawable.set_wkd, R.drawable.set_wkm,
 			R.drawable.set_jltw, R.drawable.set_ffjltw, R.drawable.set_fl,
 			R.drawable.set_ffgotg, R.drawable.set_gotg, R.drawable.set_jlsg,
@@ -76,8 +77,9 @@ public class GalleryAdapter extends BaseAdapter {
 			R.drawable.set_ffsog, R.drawable.set_sog, R.drawable.set_bm,
 			R.drawable.set_ffbm, R.drawable.set_tab, R.drawable.set_d10a,
 			R.drawable.set_m10a,
+			
 			// Other
-			R.drawable.set_ygo2, R.drawable.set_rotk,
+			R.drawable.set_botm, R.drawable.set_ygo2, R.drawable.set_rotk,
 			R.drawable.set_ygo, R.drawable.set_ffs, R.drawable.set_dota2,
 			R.drawable.set_mkr, R.drawable.set_t2t, R.drawable.set_hbtjlm,
 			R.drawable.set_trek3, R.drawable.set_lr, R.drawable.set_ka2,
@@ -86,6 +88,7 @@ public class GalleryAdapter extends BaseAdapter {
 			R.drawable.set_hbt, R.drawable.set_acb, R.drawable.set_acr,
 			R.drawable.set_sdcc, R.drawable.set_sttat, R.drawable.set_trek,
 			R.drawable.set_lotr, R.drawable.set_halo, R.drawable.set_gow,
+			
 			// Golden
 			R.drawable.set_jl52, R.drawable.set_ffjl,
 			R.drawable.set_ffcw, R.drawable.set_mcw, R.drawable.set_dkr,
