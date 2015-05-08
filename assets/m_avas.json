@@ -1,4 +1,4 @@
-{"version":0,"set_title":"Avengers Assemble"}
+{"version":0,"set_title":"Avengers Assemble",
 "001":{"keywords":"Avengers, Champions, Lady Liberators, Martial Artist, Marvel Knights, S.H.I.E.L.D, Spy","name":"Black Widow","points":"110"},
 "002":{"keywords":"Avengers, Martial Artist, S.H.I.E.L.D, Thunderbolts","name":"Hawkeye","points":"85"},
 "003":{"keywords":"Builders, Robot","name":"Aleph","points":"140/75"},
@@ -84,4 +84,4 @@
 "Avid-012":{"keywords":"","name":"","points":"5"},
 "Avid-013":{"keywords":"","name":"","points":"5"},
 "Avid-014":{"keywords":"","name":"","points":"5"},
-"Avid-015":{"keywords":"","name":"Triathlon","points":"5"},
+"Avid-015":{"keywords":"","name":"Triathlon","points":"5"}}
