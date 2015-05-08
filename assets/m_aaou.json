@@ -1,4 +1,4 @@
-{"version":0,"set_title":"Avengers: Age of Ultron Movie"}
+{"version":0,"set_title":"Avengers: Age of Ultron Movie",
 "001":{"keywords":"Armor, Avengers, Stark Industries","name":"Iron Man","points":"250/185"},
 "002":{"keywords":"Armor, Stark Industries","name":"Iron Legion","points":"50"},
 "003":{"keywords":"Avengers, Howling Commandos, Soldier","name":"Captain America","points":"125/80"},
@@ -22,5 +22,4 @@
 "103":{"keywords":"Asgardian, Avengers, Deity, Stark Industries, Warrior","name":"Thor","points":"150/100"},
 "104":{"keywords":"Avengers, Brute, Monster, Stark Industries","name":"Hulk","points":"250/150"},
 "105":{"keywords":"Avengers, Martial Artist, Spy, Stark Industries","name":"Black Widow","points":"75"},
-"106":{"keywords":"Avengers, Martial Artist, Spy, Stark Idustries","name":"Hawkeye","points":"75"},
-
+"106":{"keywords":"Avengers, Martial Artist, Spy, Stark Idustries","name":"Hawkeye","points":"75"}}
