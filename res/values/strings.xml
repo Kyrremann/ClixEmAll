@@ -41,7 +41,7 @@
     <string name="collection_dialog_inc_trade">Increase trade</string>
     <string name="collection_dialog_dec_trade">Decrease trade</string>
     <string name="done">Done</string>
-    <string name="no_items">Are there missing some clix? Please use the \"Report clix\" menu action.</string>
+    <string name="no_items">Are there missing some clix? Please consider helping updateing the set by going to http://github.com/Kyrremann/ClixEmAll</string>
     <string name="cd_have">You have this figure</string>
     <string name="cd_want">You want this figure</string>
     <string name="cd_have_want_image">Will show if you have or want the figure.</string>

@@ -29,7 +29,6 @@ public class JsonParser {
 			buffer = new byte[inputStream.available()];
 			inputStream.read(buffer);
 			inputStream.close();
-			System.out.println(buffer);
 		}
 
 		return new JSONObject(new String(buffer));
