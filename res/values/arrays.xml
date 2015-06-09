@@ -10,11 +10,14 @@
 		<item>b_wizkids.json</item>
 		<item>b_wkd.json</item>
 		<item>b_wkm.json</item>
+		<item>m_aou.json</item>
+		<item>m_ffca.json</item>
 		<item>m_avas.json</item>
 		<item>m_aqs.json</item>
 		<item>m_aaou.json</item>
 		<item>dc_jltw.json</item>
 		<item>dc_ffjltw.json</item>
+		<item>dc_fffl.json</item>
 		<item>dc_fl.json</item>
 		<item>m_ffgotg.json</item>
 		<item>m_gotg.json</item>
@@ -158,11 +161,14 @@
 		<item>WizKids</item>
 		<item>WizKids DC</item>
 		<item>WizKids Marvel</item>
+		<item>Age of Ultron: Storyline Organized Play</item>
+		<item>Fast Forces: Classic Avengers</item>
 		<item>Avengers Assemble</item>
 		<item>Avengers Quick-Start Kit</item>
 		<item>Avengers: Age of Ultron</item>
 		<item>Justice League Trinity War</item>
 		<item>Fast Forces: The Crime Syndicate</item>
+		<item>Fast Forces: Rogues</item>
 		<item>The Flash</item>
 		<item>Fast Forces: The Inhumans</item>
 		<item>Guardians of the Galaxy</item>
