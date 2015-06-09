@@ -394,24 +394,28 @@ public class Database {
 					+ JsonParser.getSetTitle(context, lastSet + ".json") + "\n";
 		}
 		JSONObject jsonSet = JsonParser.getJsonSet(context, lastSet);
-		Collections.sort(figures);
-		for (Pair p : figures) {
-			StringBuilder builder = new StringBuilder();
-			int count = p.getCount();
-			if (count > 1) {
-				builder.append(count);
-				builder.append(" x ");
-			}
-			builder.append(p.getId());
-			builder.append(": ");
-			try {
-				builder.append(jsonSet.getJSONObject(p.getId()).getString(
-						JsonParser.NAME));
-			} catch (JSONException e) {
+		if (jsonSet == null) {
+			result += "Can't load set from database. Pleace contact the developers at heroclix@fifthfloorstudio.net";
+		} else {
+			Collections.sort(figures);
+			for (Pair p : figures) {
+				StringBuilder builder = new StringBuilder();
+				int count = p.getCount();
+				if (count > 1) {
+					builder.append(count);
+					builder.append(" x ");
+				}
 				builder.append(p.getId());
+				builder.append(": ");
+				try {
+					builder.append(jsonSet.getJSONObject(p.getId()).getString(
+							JsonParser.NAME));
+				} catch (JSONException e) {
+					builder.append(p.getId());
+				}
+				builder.append("\n");
+				result += builder.toString();
 			}
-			builder.append("\n");
-			result += builder.toString();
 		}
 		return result;
 	}
